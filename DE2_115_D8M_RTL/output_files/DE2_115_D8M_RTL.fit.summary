@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Sep 09 23:48:34 2026
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : DE2_115_D8M_RTL
+Top-level Entity Name : DE2_115_D8M_RTL
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Timing Models : Final
+Total logic elements : 3,974 / 114,480 ( 3 % )
+    Total combinational functions : 2,429 / 114,480 ( 2 % )
+    Dedicated logic registers : 2,961 / 114,480 ( 3 % )
+Total registers : 2961
+Total pins : 217 / 529 ( 41 % )
+Total virtual pins : 0
+Total memory bits : 901,120 / 3,981,312 ( 23 % )
+Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
+Total PLLs : 3 / 4 ( 75 % )
