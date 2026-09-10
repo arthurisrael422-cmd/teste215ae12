@@ -1,0 +1,25 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\intelFPGA_lite\18.1\codigo\MNIST_Classification_FPGA-master\Project_FPGA\DE2_115_D8M_RTL\simulation\modelsim
+vsdram_pll
+!i10b 1
+!s100 ?o`l`o230k7<?CL1I^TW>3
+I6[glINkDnOkA_=RF8?lZ41
+V@VkQmS>aE=P[]LgXh1bh?0
+Z1 dD:\intelFPGA_lite\18.1\codigo\MNIST_Classification_FPGA-master\Project_FPGA\DE2_115_D8M_RTL\simulation\modelsim
+w1580874448
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/sdram_pll.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/sdram_pll.v
+L0 40
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1788751632.644000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/sdram_pll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|sdram_pll|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/sdram_pll.v|
+!s101 -O0
+o-vlog01compat -work sdram_pll -O0
+!s92 -vlog01compat -work sdram_pll +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V -O0

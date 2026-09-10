@@ -1,0 +1,365 @@
+# Reading C:/altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
+# do DE2_115_D8M_RTL_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src {D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/i2c_top.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module i2c_top
+# 
+# Top level modules:
+# 	i2c_top
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src {D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/debounce_explicit.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module debounce_explicit
+# 
+# Top level modules:
+# 	debounce_explicit
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src {D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/camera_interface.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module camera_interface
+# 
+# Top level modules:
+# 	camera_interface
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src {D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/asyn_fifo.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module asyn_fifo
+# -- Compiling module dual_port_sync
+# 
+# Top level modules:
+# 	asyn_fifo
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/pll_test.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module pll_test
+# 
+# Top level modules:
+# 	pll_test
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/RESET_DELAY.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module RESET_DELAY
+# 
+# Top level modules:
+# 	RESET_DELAY
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/CLOCKMEM.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module CLOCKMEM
+# 
+# Top level modules:
+# 	CLOCKMEM
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/FpsMonitor.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module FpsMonitor
+# 
+# Top level modules:
+# 	FpsMonitor
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_WR_FIFO.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Sdram_WR_FIFO
+# 
+# Top level modules:
+# 	Sdram_WR_FIFO
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_RD_FIFO.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Sdram_RD_FIFO
+# 
+# Top level modules:
+# 	Sdram_RD_FIFO
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/VIDEO_PLL.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module VIDEO_PLL
+# 
+# Top level modules:
+# 	VIDEO_PLL
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/de2_115_d8m_rtl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module DE2_115_D8M_RTL
+# 
+# Top level modules:
+# 	DE2_115_D8M_RTL
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/pll_test_altpll.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module pll_test_altpll
+# 
+# Top level modules:
+# 	pll_test_altpll
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/video_pll_altpll.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module VIDEO_PLL_altpll
+# 
+# Top level modules:
+# 	VIDEO_PLL_altpll
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/sdram_pll_altpll.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module sdram_pll_altpll
+# 
+# Top level modules:
+# 	sdram_pll_altpll
+# vlib sdram_pll
+# vmap sdram_pll sdram_pll
+# Modifying modelsim.ini
+# vlog -vlog01compat -work sdram_pll +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/sdram_pll.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module sdram_pll
+# 
+# Top level modules:
+# 	sdram_pll
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller/VGA_Controller.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module VGA_Controller
+# 
+# Top level modules:
+# 	VGA_Controller
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Control.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Sdram_Control
+# 
+# Top level modules:
+# 	Sdram_Control
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/sdr_data_path.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module sdr_data_path
+# 
+# Top level modules:
+# 	sdr_data_path
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/control_interface.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module control_interface
+# 
+# Top level modules:
+# 	control_interface
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/command.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module command
+# 
+# Top level modules:
+# 	command
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module contour
+# 
+# Top level modules:
+# 	contour
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour_draw.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module contour_draw
+# 
+# Top level modules:
+# 	contour_draw
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mnist_classifier_top.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mnist_classifier_top
+# 
+# Top level modules:
+# 	mnist_classifier_top
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/RGB2GRAY.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module RGB2GRAY
+# 
+# Top level modules:
+# 	RGB2GRAY
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac_array.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mac_array
+# 
+# Top level modules:
+# 	mac_array
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mac
+# 
+# Top level modules:
+# 	mac
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/line_buffer_group.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module line_buffer_group
+# 
+# Top level modules:
+# 	line_buffer_group
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_III.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module fmap_III
+# 
+# Top level modules:
+# 	fmap_III
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_II.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module fmap_II
+# 
+# Top level modules:
+# 	fmap_II
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_I.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module fmap_I
+# 
+# Top level modules:
+# 	fmap_I
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/ff_line_buffer_groups.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ff_line_buffer_groups
+# 
+# Top level modules:
+# 	ff_line_buffer_groups
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/controller.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module controller
+# 
+# Top level modules:
+# 	controller
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_sender.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module cnn_sender
+# ** Warning: D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_sender.sv(192): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# ** Warning: D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_sender.sv(216): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# ** Warning: D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_sender.sv(291): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# 
+# Top level modules:
+# 	cnn_sender
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_receiver.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module cnn_receiver
+# 
+# Top level modules:
+# 	cnn_receiver
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cam2cnn.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module cam2cnn
+# 
+# Top level modules:
+# 	cam2cnn
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/bi_mem0.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module bi_mem0
+# 
+# Top level modules:
+# 	bi_mem0
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem7.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_mem7
+# 
+# Top level modules:
+# 	wt_mem7
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem6.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_mem6
+# 
+# Top level modules:
+# 	wt_mem6
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem5.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_mem5
+# 
+# Top level modules:
+# 	wt_mem5
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem4.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_mem4
+# 
+# Top level modules:
+# 	wt_mem4
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem3.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_mem3
+# 
+# Top level modules:
+# 	wt_mem3
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem2.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_mem2
+# 
+# Top level modules:
+# 	wt_mem2
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem1.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_mem1
+# 
+# Top level modules:
+# 	wt_mem1
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem0.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_mem0
+# 
+# Top level modules:
+# 	wt_mem0
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem7.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_fc1_mem7
+# 
+# Top level modules:
+# 	wt_fc1_mem7
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem6.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_fc1_mem6
+# 
+# Top level modules:
+# 	wt_fc1_mem6
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem5.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_fc1_mem5
+# 
+# Top level modules:
+# 	wt_fc1_mem5
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem4.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_fc1_mem4
+# 
+# Top level modules:
+# 	wt_fc1_mem4
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem3.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_fc1_mem3
+# 
+# Top level modules:
+# 	wt_fc1_mem3
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem2.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_fc1_mem2
+# 
+# Top level modules:
+# 	wt_fc1_mem2
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem1.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_fc1_mem1
+# 
+# Top level modules:
+# 	wt_fc1_mem1
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem0.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module wt_fc1_mem0
+# 
+# Top level modules:
+# 	wt_fc1_mem0
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/top.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/sram.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module sram
+# 
+# Top level modules:
+# 	sram
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/segment7.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module segment7
+# 
+# Top level modules:
+# 	segment7
+# vlog -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA {D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mod_N_counter.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_N_counter
+# 
+# Top level modules:
+# 	mod_N_counter
+# 

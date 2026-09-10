@@ -1,0 +1,1273 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\intelFPGA_lite\18.1\codigo\MNIST_Classification_FPGA-master\Project_FPGA\DE2_115_D8M_RTL\simulation\modelsim
+vasyn_fifo
+Igh8FVLP4AjLl]AFU45h]=2
+V2lBeh5ch;>`M4ATTno@ZD3
+Z1 dD:\intelFPGA_lite\18.1\codigo\MNIST_Classification_FPGA-master\Project_FPGA\DE2_115_D8M_RTL\simulation\modelsim
+Z2 w1636937998
+Z3 8D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/asyn_fifo.v
+Z4 FD:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/asyn_fifo.v
+L0 3
+Z5 OV;L;10.1d;51
+r1
+31
+Z6 !s108 1788751625.871000
+Z7 !s107 D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/asyn_fifo.v|
+Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src|D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/asyn_fifo.v|
+Z9 o-vlog01compat -work work -O0
+Z10 !s92 -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src -O0
+!i10b 1
+!s100 BYo04RR98l^;B<X:5LmPV2
+!s85 0
+!s101 -O0
+vbi_mem0
+Z11 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+Ink>OY5@I8ieDI9]]NJN9N0
+VhVURD_3`T19BdV3XXZgZ?1
+S1
+R1
+Z12 w1580874448
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/bi_mem0.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/bi_mem0.sv
+L0 19
+R5
+r1
+31
+Z13 o-sv -work work -O0
+Z14 !s92 -sv -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA -O0
+!i10b 1
+!s100 ?Ug<7Z7zVI22``SLBnogb3
+!s105 bi_mem0_sv_unit
+!s85 0
+!s108 1788751638.119000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/bi_mem0.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/bi_mem0.sv|
+!s101 -O0
+vcam2cnn
+R11
+IIina_mJ1<^]SN:g2cP^RY3
+VeeEVmliH^282<PNoY1R2f2
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cam2cnn.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cam2cnn.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 fD0fejP;SDhgbUaLaPiV73
+!s105 cam2cnn_sv_unit
+!s85 0
+!s108 1788751637.888000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cam2cnn.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cam2cnn.sv|
+!s101 -O0
+vcamera_interface
+I^?7E7FFl:EPkfV9Won^lY1
+VQnT38:<PDQb<^3H[MJUj=1
+R1
+w1788313301
+8D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/camera_interface.v
+FD:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/camera_interface.v
+L0 3
+R5
+r1
+31
+R9
+R10
+!i10b 1
+!s100 c?WYQ6Bg2V:cMOB00mYE71
+!s85 0
+!s108 1788751625.599000
+!s107 D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/camera_interface.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src|D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/camera_interface.v|
+!s101 -O0
+vCLOCKMEM
+I]If_98hDJII6:Oe5zi[Wn2
+VDQh`K2cb<19e@21PLU39I0
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/CLOCKMEM.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/CLOCKMEM.v
+L0 1
+R5
+r1
+31
+R9
+Z15 !s92 -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V -O0
+n@c@l@o@c@k@m@e@m
+!i10b 1
+!s100 B5KBGkNmhznDgn1UG]FoP0
+!s85 0
+!s108 1788751630.601000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/CLOCKMEM.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/CLOCKMEM.v|
+!s101 -O0
+vcnn_receiver
+R11
+I6OMFFKlOaXIiLN4LkP28]2
+V^1cmMH;RiZl_9WG:Az11i1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_receiver.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_receiver.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 MfDdTFJhPPQCddehG7=9m3
+!s105 cnn_receiver_sv_unit
+!s85 0
+!s108 1788751637.631000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_receiver.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_receiver.sv|
+!s101 -O0
+vcnn_sender
+R11
+I9Fm9fjH6o5EdG=BkGkK^Q1
+V[nH8HQXl^Ka2fQX4nGziQ1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_sender.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_sender.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 LPgdE<nh]3=;in`jZQ9LN0
+!s105 cnn_sender_sv_unit
+!s85 0
+!s108 1788751637.317000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_sender.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/cnn_sender.sv|
+!s101 -O0
+vcommand
+IJl=]mkm[jY;Q7k2dkT=Xl3
+VngeM;;m?JRZROled?Okmb0
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/command.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/command.v
+Z16 FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Params.h
+L0 43
+R5
+r1
+31
+R9
+Z17 !s92 -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control -O0
+!i10b 1
+!s100 chokk9?>WQjZDbdzD@4oK1
+!s85 0
+!s108 1788751633.935000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Params.h|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/command.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/command.v|
+!s101 -O0
+vcontour
+R11
+IozeKaf]o3cO8<:kTbH0n50
+VLb983_PAW_YcOnK8;N_A83
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour.sv
+L0 18
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 H6AkZ23Ub4<GZ@1=;=cQ?0
+!s105 contour_sv_unit
+!s85 0
+!s108 1788751634.236000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour.sv|
+!s101 -O0
+vcontour_draw
+R11
+If7R>3YAl7J0?VWlI0;;7<0
+VoB[QR>]E>0ReNRQL9g:c[0
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour_draw.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour_draw.sv
+L0 18
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 UTO;5PjL4DdBCzXKTWg<C0
+!s105 contour_draw_sv_unit
+!s85 0
+!s108 1788751634.495000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour_draw.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/contour_draw.sv|
+!s101 -O0
+vcontrol_interface
+I^3Nog7kF;Vk]858boDISi2
+V97ezDz43mhUP=;oc8i_g:1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/control_interface.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/control_interface.v
+R16
+L0 43
+R5
+r1
+31
+R9
+R17
+!i10b 1
+!s100 Ten^>WT9[5SF>WCVJEKMk3
+!s85 0
+!s108 1788751633.688000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Params.h|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/control_interface.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/control_interface.v|
+!s101 -O0
+vcontroller
+R11
+I`Ecnmhb=XGNYiAimmPJ2]2
+VUP?AL<XbS8;1g[V_1DN;j1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/controller.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/controller.sv
+L0 25
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 >;aPh`RJ:F]MGEH=kY;C<3
+!s105 controller_sv_unit
+!s85 0
+!s108 1788751637.099000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/controller.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/controller.sv|
+!s101 -O0
+vDE2_115_D8M_RTL
+I8kXXKlGFATOCoBYz;;JiH1
+Vf@=:@oj^Rdz5_D3Xi20UK1
+R1
+w1788747157
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/de2_115_d8m_rtl.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/de2_115_d8m_rtl.v
+L0 9
+R5
+r1
+31
+R9
+n@d@e2_115_@d8@m_@r@t@l
+!i10b 1
+!s100 H1n^8Q:dae0Nm4;XA55C02
+!s85 0
+!s108 1788751631.586000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/de2_115_d8m_rtl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/de2_115_d8m_rtl.v|
+!s101 -O0
+!s92 -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL -O0
+vdebounce_explicit
+Imh[=HXoD@2hPXVO_LmobD2
+VSOU?=Ohme1<U>^0Ta5P0i1
+R1
+R2
+8D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/debounce_explicit.v
+FD:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/debounce_explicit.v
+L0 3
+R5
+r1
+31
+R9
+R10
+!i10b 1
+!s100 POO@]TOFCQf_bghS5dVb`3
+!s85 0
+!s108 1788751625.399000
+!s107 D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/debounce_explicit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src|D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/debounce_explicit.v|
+!s101 -O0
+vdual_port_sync
+I0;g6^Ta?UFlOofVnA7Sc;3
+VAzWjYVLfW`CHQc;YgPWUW3
+R1
+R2
+R3
+R4
+L0 142
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+!i10b 1
+!s100 jBnCjCXg9]8O=kLda4<UI3
+!s85 0
+!s101 -O0
+vff_line_buffer_groups
+R11
+I4KWiB:LHnJ:JgXDa3^PEQ1
+VP5NXmjM=T1D8zjkSIS:@73
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/ff_line_buffer_groups.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/ff_line_buffer_groups.sv
+L0 24
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 e^eK>@eZ4KSkCjlYj1J@R3
+!s105 ff_line_buffer_groups_sv_unit
+!s85 0
+!s108 1788751636.896000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/ff_line_buffer_groups.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/ff_line_buffer_groups.sv|
+!s101 -O0
+vfmap_I
+R11
+IIZ72=ZlKma8i0J?GKJclZ3
+V1oTfNje]zX>KWWAjL3ez42
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_I.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_I.sv
+L0 21
+R5
+r1
+31
+R13
+R14
+nfmap_@i
+!i10b 1
+!s100 cCZRKAZ]7SmQGiEcWf0MR3
+!s105 fmap_I_sv_unit
+!s85 0
+!s108 1788751636.678000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_I.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_I.sv|
+!s101 -O0
+vfmap_II
+R11
+Ic3`0?KO2n;Gkz8PK3W2@32
+V1Naj_hA5=cA^GYCALcLBD1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_II.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_II.sv
+L0 21
+R5
+r1
+31
+R13
+R14
+nfmap_@i@i
+!i10b 1
+!s100 ^[P8XOc:<2YVPJ]NS>4:f0
+!s105 fmap_II_sv_unit
+!s85 0
+!s108 1788751636.463000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_II.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_II.sv|
+!s101 -O0
+vfmap_III
+R11
+I];DPgcJj6I4;ah4OAaFzJ2
+VPda0ndLEX0<U2K]SjnL<V0
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_III.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_III.sv
+L0 21
+R5
+r1
+31
+R13
+R14
+nfmap_@i@i@i
+!i10b 1
+!s100 ?j^KD^=d47f?SBA9M0_>K2
+!s105 fmap_III_sv_unit
+!s85 0
+!s108 1788751636.237000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_III.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/fmap_III.sv|
+!s101 -O0
+vFpsMonitor
+IUCooFja`;bV]J2z[AW3Q81
+V[BYe]0U3AzE`Q6;>=771e3
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/FpsMonitor.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/FpsMonitor.v
+L0 1
+R5
+r1
+31
+R9
+R15
+n@fps@monitor
+!i10b 1
+!s100 XH:E5bY01[2jfozCO`3BT0
+!s85 0
+!s108 1788751630.796000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/FpsMonitor.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/FpsMonitor.v|
+!s101 -O0
+vi2c_top
+I2z4PPOZ5WRd:>dz8GZmmL3
+V`S53IG0L[LLRfIa=a]FQS3
+R1
+R2
+8D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/i2c_top.v
+FD:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/i2c_top.v
+L0 3
+R5
+r1
+31
+R9
+R10
+!i10b 1
+!s100 Dn`X<HU<2Y^SQBH>@47NW3
+!s85 0
+!s108 1788751625.135000
+!s107 D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/i2c_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src|D:/intelFPGA_lite/18.1/codigo/FPGA_OV7670_Camera_Interface-main/src/i2c_top.v|
+!s101 -O0
+vline_buffer_group
+R11
+I^?WIek>c@@A0bg>4h?H8G3
+Vggg_CBiUc:oPcQOhEX88N3
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/line_buffer_group.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/line_buffer_group.sv
+L0 23
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 XKJMmL8hL:k3[cn;Sl3eX2
+!s105 line_buffer_group_sv_unit
+!s85 0
+!s108 1788751635.700000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/line_buffer_group.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/line_buffer_group.sv|
+!s101 -O0
+vmac
+R11
+IJK:G4bfXlRgL]OledVVVX3
+Va=U?Do]zB5d:P9N3N57Mn1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac.sv
+L0 23
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 ?hZVSRGHBCa5[O6[anb7H2
+!s105 mac_sv_unit
+!s85 0
+!s108 1788751635.474000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac.sv|
+!s101 -O0
+vmac_array
+R11
+IJQi^ZLYM83O;]L39E=VQD2
+VViVQogfhggM2W?5O5jCfF2
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac_array.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac_array.sv
+L0 35
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 K0H<UgE?Z?z]9C=kYNeEf2
+!s105 mac_array_sv_unit
+!s85 0
+!s108 1788751635.225000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac_array.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mac_array.sv|
+!s101 -O0
+vmnist_classifier_top
+R11
+IMemZEIPTz]QS[D71]63jj2
+VAb>maz;zI?Q=b<b=48nDH3
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mnist_classifier_top.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mnist_classifier_top.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 en7dV<[0hHM6VHba7_VI20
+!s105 mnist_classifier_top_sv_unit
+!s85 0
+!s108 1788751634.747000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mnist_classifier_top.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mnist_classifier_top.sv|
+!s101 -O0
+vmod_N_counter
+R11
+!i10b 1
+!s100 <kGOgXz5@Xf45lEf^H@;B3
+ISJ^B?U59U7GUcT`cn2Hf[1
+VPAZA`bThMfQjV`_;m_O@n3
+!s105 mod_N_counter_sv_unit
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mod_N_counter.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mod_N_counter.sv
+L0 24
+R5
+r1
+!s85 0
+31
+!s108 1788751643.980000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mod_N_counter.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/mod_N_counter.sv|
+!s101 -O0
+R13
+R14
+nmod_@n_counter
+vpll_test
+IK=NUKl=H@i6;IUEoh`IL>2
+Vo]f3Wk]Oo1jj68<Z6FDX42
+R1
+w1788300222
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/pll_test.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/pll_test.v
+L0 39
+R5
+r1
+31
+R9
+R15
+!i10b 1
+!s100 1noV`O507Mlnh6nhcg^Ub3
+!s85 0
+!s108 1788751626.194000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/pll_test.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/pll_test.v|
+!s101 -O0
+vpll_test_altpll
+Iz<`zPecRNcWQ5F6Y<nRkd2
+VWV]n:HBcYlFQgcf=@fH?L2
+R1
+Z18 w1788301109
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/pll_test_altpll.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/pll_test_altpll.v
+L0 29
+R5
+r1
+31
+R9
+Z19 !s92 -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db -O0
+!i10b 1
+!s100 k[_bS1Vg@VPZUbMk>]goz0
+!s85 0
+!s108 1788751631.803000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/pll_test_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/pll_test_altpll.v|
+!s101 -O0
+vRESET_DELAY
+IIz7hnl2E704Df_OPe=M^32
+VKl@2FN9i]H8:=Je6kK2lo0
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/RESET_DELAY.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/RESET_DELAY.v
+L0 44
+R5
+r1
+31
+R9
+R15
+n@r@e@s@e@t_@d@e@l@a@y
+!i10b 1
+!s100 ?gZT1G[0DGFe?>8FIKk`93
+!s85 0
+!s108 1788751630.341000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/RESET_DELAY.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/RESET_DELAY.v|
+!s101 -O0
+vRGB2GRAY
+R11
+IRZPf_K^N=OgP0I:WGG5PB0
+VIYXJMgN?:L4WT]e3IYHfm3
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/RGB2GRAY.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/RGB2GRAY.sv
+L0 18
+R5
+r1
+31
+R13
+R14
+n@r@g@b2@g@r@a@y
+!i10b 1
+!s100 J>B;o6VZ;`=ggngNagiQQ1
+!s105 RGB2GRAY_sv_unit
+!s85 0
+!s108 1788751634.997000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/RGB2GRAY.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/RGB2GRAY.sv|
+!s101 -O0
+vsdr_data_path
+If4GKDk4@e9DhdN@>Vk8^n1
+VC^n;J1KiAZQ_:QeP5YY<22
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/sdr_data_path.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/sdr_data_path.v
+R16
+L0 43
+R5
+r1
+31
+R9
+R17
+!i10b 1
+!s100 TM4_UAb^``3E8@S8IhdG32
+!s85 0
+!s108 1788751633.451000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Params.h|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/sdr_data_path.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/sdr_data_path.v|
+!s101 -O0
+vSdram_Control
+IL^mWQl_:W[`b@5Ta0iS1S0
+VCAG68Z_ZU=mjF`@7N_JQB3
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Control.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Control.v
+R16
+L0 37
+R5
+r1
+31
+R9
+R17
+n@sdram_@control
+!i10b 1
+!s100 6<19DFI=A4ZgNhZbDgoLh2
+!s85 0
+!s108 1788751633.155000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Params.h|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Control.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Control.v|
+!s101 -O0
+vsdram_pll_altpll
+I7>l5n0jnfhn777<C5@ZGe1
+V^NO:_X<TDI<GMHzjkP8Lc0
+R1
+w1788301110
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/sdram_pll_altpll.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/sdram_pll_altpll.v
+L0 30
+R5
+r1
+31
+R9
+R19
+!i10b 1
+!s100 KlzO2Ym=I=K1=5=O:=eH:2
+!s85 0
+!s108 1788751632.228000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/sdram_pll_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/sdram_pll_altpll.v|
+!s101 -O0
+vSdram_RD_FIFO
+IEGSn8Cm;XGB5HRo8=]^:60
+VzzNUc=VhD@IQJH_oNjE0n2
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_RD_FIFO.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_RD_FIFO.v
+L0 40
+R5
+r1
+31
+R9
+R17
+n@sdram_@r@d_@f@i@f@o
+!i10b 1
+!s100 @mR88W0Zl^bhCJCDYaKO[2
+!s85 0
+!s108 1788751631.152000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_RD_FIFO.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_RD_FIFO.v|
+!s101 -O0
+vSdram_WR_FIFO
+Il2AlB8^]QnNkon4d93fDa3
+Vl?bg2;lJob^oX3GIbn;@n3
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_WR_FIFO.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_WR_FIFO.v
+L0 40
+R5
+r1
+31
+R9
+n@sdram_@w@r_@f@i@f@o
+R17
+!i10b 1
+!s100 zh=jV>W;8n:]OU9=Q`EjX0
+!s85 0
+!s108 1788751630.966000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_WR_FIFO.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_WR_FIFO.v|
+!s101 -O0
+vsegment7
+R11
+I3QdF15;gGO`66RA6=0nTL1
+Ve^:;OQi_mdc29IdJX028`0
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/segment7.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/segment7.sv
+L0 18
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 gkUF^8[kTKQR50EingTQe3
+!s105 segment7_sv_unit
+!s85 0
+!s108 1788751643.769000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/segment7.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/segment7.sv|
+!s101 -O0
+vsram
+R11
+Iebj3I4ZCi8SDT`iXS=gNm3
+V`jlTc^86W`MFTSV4P_R=z2
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/sram.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/sram.sv
+L0 24
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 :Ag8JzJbiH19?lLa_TLR51
+!s105 sram_sv_unit
+!s85 0
+!s108 1788751643.562000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/sram.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/sram.sv|
+!s101 -O0
+vtop
+R11
+IGS?LkCSco8JJ:?coZ5o?L1
+V[^eb5b@]e95NWgz`?FS[82
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/top.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/top.sv
+L0 24
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 6jX=CKL1DPVWBdf6:S>D_2
+!s105 top_sv_unit
+!s85 0
+!s108 1788751643.318000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/top.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/top.sv|
+!s101 -O0
+vVGA_Controller
+I=bUP?=JgBQoP5[cP;TU7F3
+Vi`2W:c3[6U_^WBK=C8dM_1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller/VGA_Controller.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller/VGA_Controller.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller/VGA_Param.h
+L0 2
+R5
+r1
+31
+R9
+n@v@g@a_@controller
+!i10b 1
+!s100 38bGW^o5Y;>Uf=O`Y8>U80
+!s85 0
+!s108 1788751632.905000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller/VGA_Param.h|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller/VGA_Controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller/VGA_Controller.v|
+!s101 -O0
+!s92 -vlog01compat -work work +incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/VGA_Controller -O0
+vVIDEO_PLL
+IXD<H@MK;SUjDk`oJl]AkP1
+VZVU>zD>7K3o<:kL[efM0n1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/VIDEO_PLL.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/VIDEO_PLL.v
+L0 40
+R5
+r1
+31
+R9
+R15
+n@v@i@d@e@o_@p@l@l
+!i10b 1
+!s100 85WkzYRH@B_9i@^4lFnb32
+!s85 0
+!s108 1788751631.339000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/VIDEO_PLL.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/V/VIDEO_PLL.v|
+!s101 -O0
+vVIDEO_PLL_altpll
+IPCRc4jJV_og?FSI]I5NSW3
+VJJ[@eIzi8PmMIhJPO4c]j0
+R1
+R18
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/video_pll_altpll.v
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/video_pll_altpll.v
+L0 30
+R5
+r1
+31
+R9
+R19
+n@v@i@d@e@o_@p@l@l_altpll
+!i10b 1
+!s100 n2^K2:FPa[mo^4z0@3[DB2
+!s85 0
+!s108 1788751632.005000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/video_pll_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/DE2_115_D8M_RTL/db/video_pll_altpll.v|
+!s101 -O0
+vwt_fc1_mem0
+R11
+IJK2?I?6=z2?F8;aLHWHbF3
+VJCMVP9Z71nPlD02_4F<:33
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem0.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem0.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 ^7RHP_[4@1GVn4nc0[RZd0
+!s105 wt_fc1_mem0_sv_unit
+!s85 0
+!s108 1788751643.063000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem0.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem0.sv|
+!s101 -O0
+vwt_fc1_mem1
+R11
+I^UTkInm@_oYzI5bSnj@fN1
+Vl:JJlX<[NHBi93230IQCL1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem1.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem1.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 o?LjV;@QmSig^4LKRM6Wm2
+!s105 wt_fc1_mem1_sv_unit
+!s85 0
+!s108 1788751642.750000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem1.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem1.sv|
+!s101 -O0
+vwt_fc1_mem2
+R11
+Ilz^YWISLY0HXON=bC19gV2
+VO4Xa_K;L_UdGKbdDX8nHd1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem2.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem2.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 3JU:Qe8COdmHFe:Rjha8Z1
+!s105 wt_fc1_mem2_sv_unit
+!s85 0
+!s108 1788751642.460000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem2.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem2.sv|
+!s101 -O0
+vwt_fc1_mem3
+R11
+IL=@^AXb>X?z:cTdTAI`5:0
+V65lY5G@dTJhOUBOU<JKGX2
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem3.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem3.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 ^MWFgG^K]L2>Pk4Mi21VB2
+!s105 wt_fc1_mem3_sv_unit
+!s85 0
+!s108 1788751642.085000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem3.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem3.sv|
+!s101 -O0
+vwt_fc1_mem4
+R11
+IZmVX>^b69iDcj0kRDSZXf1
+V66:BiVOkR?BmSL513Q7Me2
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem4.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem4.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 B^A@RWIIV@zoXb8FiRG0O0
+!s105 wt_fc1_mem4_sv_unit
+!s85 0
+!s108 1788751641.429000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem4.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem4.sv|
+!s101 -O0
+vwt_fc1_mem5
+R11
+IAKNf>5z6?CQ`Unz2Zio=T0
+Vo:?e9DnVD`M[X@UCVTZ@D3
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem5.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem5.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 WNQnJ2gGIWd4099Q_]<W[1
+!s105 wt_fc1_mem5_sv_unit
+!s85 0
+!s108 1788751641.152000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem5.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem5.sv|
+!s101 -O0
+vwt_fc1_mem6
+R11
+I2XD@bH;Qig;<C?l8gYkcm3
+VWhbD5bM2hZHCOcWNcNjLN2
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem6.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem6.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 <4Q<G^dmMX6PXIbPnKzH]3
+!s105 wt_fc1_mem6_sv_unit
+!s85 0
+!s108 1788751640.844000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem6.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem6.sv|
+!s101 -O0
+vwt_fc1_mem7
+R11
+I8Sz0KUMgXAnMzNS<Y7TNY2
+VdXV2MJQXZnz<bfzI_Bz<b1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem7.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem7.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 nl142jd6_ZPBfIMSPW85k0
+!s105 wt_fc1_mem7_sv_unit
+!s85 0
+!s108 1788751640.521000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem7.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_fc1_mem7.sv|
+!s101 -O0
+vwt_mem0
+R11
+Ihd`I?ogz<b`6IA`hYm?MT3
+VElMQzjPb??S]@;zHj6ReY3
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem0.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem0.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 2:8COflRW4m:8^h;jdW>n1
+!s105 wt_mem0_sv_unit
+!s85 0
+!s108 1788751640.212000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem0.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem0.sv|
+!s101 -O0
+vwt_mem1
+R11
+INK^XbVB`6O_]]d@7KYYIS1
+VIg2Im^fmi?fj]9GI`SeH40
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem1.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem1.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 aTlRLbD6D66FEU^EGiYQD1
+!s105 wt_mem1_sv_unit
+!s85 0
+!s108 1788751639.806000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem1.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem1.sv|
+!s101 -O0
+vwt_mem2
+R11
+IU`7NJ_f^cNbzNIlMRCH?=0
+V?[_Ma9eShW@ngd[?_S[<20
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem2.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem2.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 @[:OP17e:hU4dl]GUoZ>N1
+!s105 wt_mem2_sv_unit
+!s85 0
+!s108 1788751639.535000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem2.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem2.sv|
+!s101 -O0
+vwt_mem3
+R11
+I:adOG8YVcUVY?S6;=3J^93
+V3hH1Yb6C=RbXz`3^TeVcP1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem3.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem3.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 QMocbc_g5_>0KLS85NRAj1
+!s105 wt_mem3_sv_unit
+!s85 0
+!s108 1788751639.274000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem3.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem3.sv|
+!s101 -O0
+vwt_mem4
+R11
+I_<HfZH8QaNTz?mSH`_W9B0
+VC:aOK0=P;U^I>RLSH]<QG0
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem4.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem4.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 NcMn0Qh738B?MAHBYk:553
+!s105 wt_mem4_sv_unit
+!s85 0
+!s108 1788751639.042000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem4.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem4.sv|
+!s101 -O0
+vwt_mem5
+R11
+ITAje4>=6BlKhc1JEW1n1F0
+V6a]hNDmlBXbb_`jYRij@f1
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem5.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem5.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 LDz66G2eFBCU<A]j7E>RM0
+!s105 wt_mem5_sv_unit
+!s85 0
+!s108 1788751638.804000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem5.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem5.sv|
+!s101 -O0
+vwt_mem6
+R11
+IDCmLziQEHiA]OcY7LE=`e0
+Vo6L8mUTDVEcA96ELA_IWZ0
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem6.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem6.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 Y8R=8OzH3g5`LA785aXYh3
+!s105 wt_mem6_sv_unit
+!s85 0
+!s108 1788751638.575000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem6.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem6.sv|
+!s101 -O0
+vwt_mem7
+R11
+IA;?PDM`:mjLbX4]MT3FOf3
+VE;4MiLC8fAAhU<f[ccHz03
+S1
+R1
+R12
+8D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem7.sv
+FD:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem7.sv
+L0 20
+R5
+r1
+31
+R13
+R14
+!i10b 1
+!s100 B]1MzKBNajFZT40[E?DYk2
+!s105 wt_mem7_sv_unit
+!s85 0
+!s108 1788751638.346000
+!s107 D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem7.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA|D:/intelFPGA_lite/18.1/codigo/MNIST_Classification_FPGA-master/Project_FPGA/wt_mem7.sv|
+!s101 -O0

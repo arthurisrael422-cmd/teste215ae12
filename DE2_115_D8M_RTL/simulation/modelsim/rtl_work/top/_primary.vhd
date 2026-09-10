@@ -1,0 +1,61 @@
+library verilog;
+use verilog.vl_types.all;
+entity top is
+    generic(
+        GS_BITS         : integer := 8;
+        BCD_BITS        : integer := 4;
+        D_WIDTH         : integer := 16;
+        LINE_BUF_GROUPS : integer := 16;
+        LINE_BUFS_PER_GROUP: integer := 2;
+        LINE_BUF_DEPTH  : integer := 30;
+        LINE_BUF_ADDR_BITS: integer := 5;
+        FMAP_I_MEM_BLKS : integer := 16;
+        FMAP_I_DEPTH    : integer := 196;
+        FMAP_I_ADDR_BITS: integer := 8;
+        FMAP_II_MEM_BLKS: integer := 144;
+        FMAP_II_DEPTH   : integer := 8;
+        FMAP_II_ADDR_BITS: integer := 3;
+        FMAP_III_MEM_BLKS: integer := 64;
+        FMAP_III_DEPTH  : integer := 1;
+        FMAP_III_ADDR_BITS: integer := 1;
+        WEIGHT_MEM_BLKS : integer := 16;
+        WEIGHT_MEM_DEPTH: integer := 76;
+        WEIGHT_MEM_ADDR_BITS: integer := 7;
+        WEIGHT_MEM_D_WIDTH: integer := 144;
+        BIAS_MEM_DEPTH  : integer := 16;
+        BIAS_MEM_ADDR_BITS: integer := 4;
+        BIAS_MEM_D_WIDTH: integer := 128
+    );
+    port(
+        clk             : in     vl_logic;
+        rst             : in     vl_logic;
+        pixel_i         : in     vl_logic_vector;
+        pixel_i_valid   : in     vl_logic;
+        digit_o         : out    vl_logic_vector;
+        digit_o_valid   : out    vl_logic
+    );
+    attribute mti_svvh_generic_type : integer;
+    attribute mti_svvh_generic_type of GS_BITS : constant is 1;
+    attribute mti_svvh_generic_type of BCD_BITS : constant is 1;
+    attribute mti_svvh_generic_type of D_WIDTH : constant is 1;
+    attribute mti_svvh_generic_type of LINE_BUF_GROUPS : constant is 1;
+    attribute mti_svvh_generic_type of LINE_BUFS_PER_GROUP : constant is 1;
+    attribute mti_svvh_generic_type of LINE_BUF_DEPTH : constant is 1;
+    attribute mti_svvh_generic_type of LINE_BUF_ADDR_BITS : constant is 1;
+    attribute mti_svvh_generic_type of FMAP_I_MEM_BLKS : constant is 1;
+    attribute mti_svvh_generic_type of FMAP_I_DEPTH : constant is 1;
+    attribute mti_svvh_generic_type of FMAP_I_ADDR_BITS : constant is 1;
+    attribute mti_svvh_generic_type of FMAP_II_MEM_BLKS : constant is 1;
+    attribute mti_svvh_generic_type of FMAP_II_DEPTH : constant is 1;
+    attribute mti_svvh_generic_type of FMAP_II_ADDR_BITS : constant is 1;
+    attribute mti_svvh_generic_type of FMAP_III_MEM_BLKS : constant is 1;
+    attribute mti_svvh_generic_type of FMAP_III_DEPTH : constant is 1;
+    attribute mti_svvh_generic_type of FMAP_III_ADDR_BITS : constant is 1;
+    attribute mti_svvh_generic_type of WEIGHT_MEM_BLKS : constant is 1;
+    attribute mti_svvh_generic_type of WEIGHT_MEM_DEPTH : constant is 1;
+    attribute mti_svvh_generic_type of WEIGHT_MEM_ADDR_BITS : constant is 1;
+    attribute mti_svvh_generic_type of WEIGHT_MEM_D_WIDTH : constant is 1;
+    attribute mti_svvh_generic_type of BIAS_MEM_DEPTH : constant is 1;
+    attribute mti_svvh_generic_type of BIAS_MEM_ADDR_BITS : constant is 1;
+    attribute mti_svvh_generic_type of BIAS_MEM_D_WIDTH : constant is 1;
+end top;
