@@ -181,22 +181,22 @@ wire [7:0] b_8 = {b_val, b_val[4:2]};
 // Cálculo de Luminância Otimizado para FPGA (BT.601): (R*306 + G*601 + B*117) >> 10
 wire [7:0] gray_val = (r_8 * 306 + g_8 * 601 + b_8 * 117) >> 10;
 
-//------ SDRAM CONTROLLER --
+//------ SDRAM CONTROLLER (CORRIGIDO PARA OV7670) ------
 Sdram_Control u7 (
     // HOST Side
     .RESET_N     ( KEY[0] ),
     .CLK         ( SDRAM_CTRL_CLK ),
     
-    // FIFO Write Side 1 (Grava os pixels da nova câmera na SDRAM)
-    .WR1_DATA    ( {gray_val, 2'b00} ), // Converte RGB565 MSB Red para barramento 10-bit
-    .WR1         ( cmos_href & cmos_vsync ),          // Habilita gravação apenas em área ativa do frame
+    // FIFO Write Side 1 (Gravação da Câmera OV7670)
+    .WR1_DATA    ( {gray_val, 2'b00} ),       // 8 bits de escala de cinza + 2 bits nulos
+    .WR1         ( cmos_href & ~cmos_vsync ), // Grava APENAS na área ativa da imagem (~cmos_vsync invertido)
     .WR1_ADDR    ( 0 ),
     .WR1_MAX_ADDR( 640*480 ),
     .WR1_LENGTH  ( 256 ),
-    .WR1_LOAD    ( !DLY_RST_0 ),
-    .WR1_CLK     ( cmos_pclk ),                       // Registra usando o clock físico da câmera
+    .WR1_LOAD    ( !DLY_RST_0 | cmos_vsync ), // Reseta o endereço da memória a cada novo quadro
+    .WR1_CLK     ( cmos_pclk ),               // Sincronizado pelo clock de pixel da câmera
     
-    // FIFO Read Side 1
+    // FIFO Read Side 1 (Leitura para o VGA)
     .RD1_DATA    ( SDRAM_RD_DATA[9:0] ),
     .RD1         ( READ_Request ),
     .RD1_ADDR    ( 0 ),
@@ -205,7 +205,7 @@ Sdram_Control u7 (
     .RD1_LOAD    ( !DLY_RST_1 ),
     .RD1_CLK     ( VGA_CLK ),
     
-    // SDRAM Side
+    // SDRAM Physical Side
     .SA          ( DRAM_ADDR ),
     .BA          ( DRAM_BA ),
     .CS_N        ( DRAM_CS_N ),
@@ -270,7 +270,7 @@ mnist_classifier_top APPLICATION_BLOCK (
     .VGA_HS      ( VGA_HS ),
     .VGA_VS      ( VGA_VS ),
     .CONTOUR_MODE( SW[0] ),
-    .VGA_H_CNT   ( ), // Se necessário, remapear para contadores internos
+    .VGA_H_CNT   ( ), // Se necessário, remapeie para contadores internos
     .VGA_V_CNT   ( ),
     .iVGA_R      ( RED ),
     .iVGA_G      ( GREEN ),
