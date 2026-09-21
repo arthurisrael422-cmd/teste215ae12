@@ -4,6 +4,14 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "LEDG[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDG[1]",
+					"strict" : false
+				},
+				{
 					"name" : "LEDR[15]",
 					"strict" : false
 				},
@@ -69,6 +77,34 @@
 				},
 				{
 					"name" : "HEX1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[6]",
 					"strict" : false
 				},
 				{
@@ -404,6 +440,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "SW[0]",
+					"strict" : false
+				},
+				{
 					"name" : "cmos_pclk",
 					"strict" : false
 				},
@@ -420,19 +460,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "cmos_href",
+					"name" : "cmos_db[7]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[2]",
+					"name" : "cmos_db[6]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[1]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[3]",
+					"name" : "cmos_db[5]",
 					"strict" : false
 				},
 				{
@@ -456,15 +492,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "cmos_db[6]",
+					"name" : "KEY[2]",
 					"strict" : false
 				},
 				{
-					"name" : "cmos_db[5]",
+					"name" : "KEY[1]",
 					"strict" : false
 				},
 				{
-					"name" : "cmos_db[7]",
+					"name" : "KEY[3]",
+					"strict" : false
+				},
+				{
+					"name" : "cmos_href",
 					"strict" : false
 				},
 				{
