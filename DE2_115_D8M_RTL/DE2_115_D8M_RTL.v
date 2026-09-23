@@ -164,8 +164,13 @@ sdram_pll u6(
 	.c0     ( SDRAM_CTRL_CLK )  // 100MHZ 0 degree
 );
 
-// Seleção do barramento de dados da câmera (SW[3] alterna entre D[7:0] e D[9:2])
-wire [7:0] cmos_db_bus = (SW[3]) ? MIPI_PIXEL_D[9:2] : MIPI_PIXEL_D[7:0];
+// Barramento paralelo de 8 bits da câmera OV7670
+wire [7:0] cmos_db_bus = MIPI_PIXEL_D[7:0];
+
+// Pixel RGB565 completo e pulso de validade produzidos pelo camera_interface.
+// Ambos pertencem ao domínio SDRAM_CTRL_CLK (100 MHz).
+wire [15:0] ov7670_rgb565;
+wire        ov7670_pixel_valid;
 
 //------ INSTANCIAÇÃO DO DRIVER DA CÂMERA OV7670 ------
 camera_interface camera_inst (
@@ -185,94 +190,43 @@ camera_interface camera_inst (
 	.rd_en       ( 1'b0 ),
 	.dout        ( ),
 	.data_count_r( ),
-	.led         ( )
+	.led         ( ),
+	.pixel_out   ( ov7670_rgb565 ),
+	.pixel_valid ( ov7670_pixel_valid )
 );
 
 //=============================================================================
-// CAPTURA SÍNCRONA DE PIXELS DA OV7670
+// CONVERSÃO DO PIXEL RGB565 DA OV7670 PARA GRAYSCALE
 //=============================================================================
 
-reg [9:0] line_pixel_cnt;
-reg [9:0] frame_line_cnt;
-reg       byte_flag;
-reg [7:0] msb_byte;
-reg       write_pixel_en;
-reg [7:0] captured_gray;
+wire [7:0] ov7670_red;
+wire [7:0] ov7670_green;
+wire [7:0] ov7670_blue;
+wire [7:0] ov7670_gray;
 
-// Detecção de borda do HREF (início/fim de linha)
-reg href_d;
-always @(posedge MIPI_PIXEL_CLK or negedge RESET_N) begin
-	if (~RESET_N) href_d <= 1'b0;
-	else href_d <= MIPI_PIXEL_HS;
-end
+assign ov7670_red   = {ov7670_rgb565[15:11], ov7670_rgb565[15:13]};
+assign ov7670_green = {ov7670_rgb565[10:5],  ov7670_rgb565[10:9]};
+assign ov7670_blue  = {ov7670_rgb565[4:0],   ov7670_rgb565[4:2]};
 
-wire href_start = MIPI_PIXEL_HS & ~href_d;
-
-always @(posedge MIPI_PIXEL_CLK or negedge RESET_N) begin
-	if (~RESET_N) begin
-		line_pixel_cnt <= 10'd0;
-		frame_line_cnt <= 10'd0;
-		byte_flag      <= 1'b0;
-		msb_byte       <= 8'h00;
-		write_pixel_en <= 1'b0;
-		captured_gray  <= 8'h00;
-	end else if (MIPI_PIXEL_VS) begin
-		line_pixel_cnt <= 10'd0;
-		frame_line_cnt <= 10'd0;
-		byte_flag      <= 1'b0;
-		write_pixel_en <= 1'b0;
-	end else if (href_start) begin
-		line_pixel_cnt <= 10'd0;
-		byte_flag      <= 1'b0;
-		write_pixel_en <= 1'b0;
-	end else if (MIPI_PIXEL_HS) begin
-		if (byte_flag == 1'b0) begin
-			msb_byte       <= cmos_db_bus;
-			byte_flag      <= 1'b1;
-			write_pixel_en <= 1'b0;
-		end else begin
-			byte_flag <= 1'b0;
-			if (line_pixel_cnt < 10'd640 && frame_line_cnt < 10'd480) begin
-				write_pixel_en <= 1'b1;
-				line_pixel_cnt <= line_pixel_cnt + 1'b1;
-				
-				// SW[2] = 0 -> Conversão RGB565 para Grayscale
-				// SW[2] = 1 -> Modo YUV422 (Byte Y)
-				if (SW[2]) begin
-					captured_gray <= msb_byte;
-				end else begin
-					captured_gray <= ({msb_byte[7:3], msb_byte[7:5]} * 306 + 
-					                   {msb_byte[2:0], cmos_db_bus[7:5], msb_byte[2:1]} * 601 + 
-					                   {cmos_db_bus[4:0], cmos_db_bus[4:2]} * 117) >> 10;
-				end
-			end else begin
-				write_pixel_en <= 1'b0;
-			end
-		end
-	end else begin
-		write_pixel_en <= 1'b0;
-	end
-end
-
-// SELETOR DE MODO DE TESTE AUTÔNOMO (SW[1]):
-// SW[1] = 0 -> Sinal da Câmera OV7670
-// SW[1] = 1 -> Padrão Sintético (VGA_CLK)
-wire [7:0] final_sdram_write_gray = (SW[1]) ? VGA_H_CNT[7:0] : captured_gray;
-wire       final_sdram_write_en   = (SW[1]) ? (VGA_H_CNT < 640 && VGA_V_CNT < 480) : write_pixel_en;
-wire       final_sdram_write_clk  = (SW[1]) ? VGA_CLK : MIPI_PIXEL_CLK;
+RGB2GRAY grayscale_converter (
+	.i_RED       ( ov7670_red ),
+	.i_GREEN     ( ov7670_green ),
+	.i_BLUE      ( ov7670_blue ),
+	.o_GRAYSCALE ( ov7670_gray )
+);
 
 //------ SDRAM CONTROLLER ------
 Sdram_Control u7 (
 	// HOST Side
 	.RESET_N      ( KEY[0] ),
 	.CLK          ( SDRAM_CTRL_CLK ),
-	.WR1_DATA     ( {final_sdram_write_gray, 2'b00} ),
-	.WR1          ( final_sdram_write_en ),
+	.WR1_DATA     ( {ov7670_gray, 2'b00} ),
+	.WR1          ( ov7670_pixel_valid ),
 	.WR1_ADDR     ( 0 ),
 	.WR1_MAX_ADDR ( 640*480 ),
 	.WR1_LENGTH   ( 256 ),
 	.WR1_LOAD     ( !DLY_RST_0 ),
-	.WR1_CLK      ( final_sdram_write_clk ),
+	.WR1_CLK      ( SDRAM_CTRL_CLK ),
 	// FIFO Read Side 1 (Leitura para o VGA)
 	.RD1_DATA     ( SDRAM_RD_DATA[9:0] ),
 	.RD1          ( READ_Request ),
