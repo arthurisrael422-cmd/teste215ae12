@@ -43,19 +43,6 @@ sccb_state_q.sccb_address 0 1 0 1 0
 sccb_state_q.sccb_data 1 0 0 1 0 
 sccb_state_q.sccb_stop 0 0 0 1 1 
 
-State Machine - |DE2_115_D8M_RTL|camera_interface:camera_inst|state_q
-Name state_q.fifo_write state_q.byte2 state_q.byte1 state_q.vsync_fedge state_q.delay state_q.digest_loop state_q.write_data state_q.write_address state_q.start_sccb state_q.idle 
-state_q.idle 0 0 0 0 0 0 0 0 0 0 
-state_q.start_sccb 0 0 0 0 0 0 0 0 1 1 
-state_q.write_address 0 0 0 0 0 0 0 1 0 1 
-state_q.write_data 0 0 0 0 0 0 1 0 0 1 
-state_q.digest_loop 0 0 0 0 0 1 0 0 0 1 
-state_q.delay 0 0 0 0 1 0 0 0 0 1 
-state_q.vsync_fedge 0 0 0 1 0 0 0 0 0 1 
-state_q.byte1 0 0 1 0 0 0 0 0 0 1 
-state_q.byte2 0 1 0 0 0 0 0 0 0 1 
-state_q.fifo_write 1 0 0 0 0 0 0 0 0 1 
-
 State Machine - |DE2_115_D8M_RTL|camera_interface:camera_inst|debounce_explicit:m6|state_reg
 Name state_reg.delay1 state_reg.one state_reg.delay0 state_reg.idle 
 state_reg.idle 0 0 0 0 

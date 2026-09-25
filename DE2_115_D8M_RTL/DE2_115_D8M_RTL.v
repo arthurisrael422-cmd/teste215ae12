@@ -86,7 +86,6 @@ module DE2_115_D8M_RTL (
 //=============================================================================
 // REG/WIRE declarations
 //=============================================================================
-wire	[15:0]	SDRAM_RD_DATA;
 wire			DLY_RST_0;
 wire			DLY_RST_1;
 wire			DLY_RST_2;
@@ -105,6 +104,8 @@ wire	[7:0]	B_AUTO;
 wire	[7:0]	G_AUTO;
 wire	[7:0]	R_AUTO;
 wire			RESET_N;
+wire            camera_config_done;
+wire    [7:0]   camera_gray;
 
 // Sinais intermediários do processador de imagem (APPLICATION_BLOCK)
 wire	[7:0]	processed_VGA_R;
@@ -164,13 +165,8 @@ sdram_pll u6(
 	.c0     ( SDRAM_CTRL_CLK )  // 100MHZ 0 degree
 );
 
-// Barramento paralelo de 8 bits da câmera OV7670
-wire [7:0] cmos_db_bus = MIPI_PIXEL_D[7:0];
-
-// Pixel RGB565 completo e pulso de validade produzidos pelo camera_interface.
-// Ambos pertencem ao domínio SDRAM_CTRL_CLK (100 MHz).
-wire [15:0] ov7670_rgb565;
-wire        ov7670_pixel_valid;
+// Seleção do barramento de dados da câmera (SW[3] alterna entre D[7:0] e D[9:2])
+wire [7:0] cmos_db_bus = (SW[3]) ? MIPI_PIXEL_D[9:2] : MIPI_PIXEL_D[7:0];
 
 //------ INSTANCIAÇÃO DO DRIVER DA CÂMERA OV7670 ------
 camera_interface camera_inst (
@@ -191,65 +187,58 @@ camera_interface camera_inst (
 	.dout        ( ),
 	.data_count_r( ),
 	.led         ( ),
-	.pixel_out   ( ov7670_rgb565 ),
-	.pixel_valid ( ov7670_pixel_valid )
+	.config_done ( camera_config_done )
 );
 
 //=============================================================================
-// CONVERSÃO DO PIXEL RGB565 DA OV7670 PARA GRAYSCALE
+// FRAMEBUFFER INTERNO QVGA 320x240
 //=============================================================================
 
-wire [7:0] ov7670_red;
-wire [7:0] ov7670_green;
-wire [7:0] ov7670_blue;
-wire [7:0] ov7670_gray;
+// A RAM tem um ciclo de latencia na leitura. Por isso o endereco horizontal
+// e preparado em H=159 para que o pixel 0 esteja disponivel em H=160.
+wire camera_video_active = (VGA_H_CNT >= 13'd160) &&
+	                         (VGA_H_CNT <  13'd800) &&
+	                         (VGA_V_CNT >= 13'd45)  &&
+	                         (VGA_V_CNT <  13'd525);
+wire camera_read_prepare = (VGA_H_CNT >= 13'd159) &&
+	                         (VGA_H_CNT <  13'd799) &&
+	                         (VGA_V_CNT >= 13'd45)  &&
+	                         (VGA_V_CNT <  13'd525);
+wire [9:0] next_vga_x = camera_read_prepare ?
+	                     (VGA_H_CNT - 13'd159) : 10'd0;
+wire [8:0] active_vga_y = (VGA_V_CNT >= 13'd45) ?
+	                       (VGA_V_CNT - 13'd45) : 9'd0;
+wire [8:0] qvga_read_x = next_vga_x[9:1];
+wire [7:0] qvga_read_y = active_vga_y[8:1];
+wire [16:0] qvga_read_address = qvga_read_y * 17'd320 + qvga_read_x;
 
-assign ov7670_red   = {ov7670_rgb565[15:11], ov7670_rgb565[15:13]};
-assign ov7670_green = {ov7670_rgb565[10:5],  ov7670_rgb565[10:9]};
-assign ov7670_blue  = {ov7670_rgb565[4:0],   ov7670_rgb565[4:2]};
-
-RGB2GRAY grayscale_converter (
-	.i_RED       ( ov7670_red ),
-	.i_GREEN     ( ov7670_green ),
-	.i_BLUE      ( ov7670_blue ),
-	.o_GRAYSCALE ( ov7670_gray )
+ov7670_qvga_framebuffer camera_framebuffer (
+	.reset_n        ( RESET_N ),
+	.capture_enable ( camera_config_done ),
+	.pclk           ( MIPI_PIXEL_CLK ),
+	.href           ( MIPI_PIXEL_HS ),
+	.vsync          ( MIPI_PIXEL_VS ),
+	.pixel_data     ( cmos_db_bus ),
+	.read_clk       ( VGA_CLK ),
+	.read_address   ( qvga_read_address ),
+	.read_gray      ( camera_gray )
 );
 
-//------ SDRAM CONTROLLER ------
-Sdram_Control u7 (
-	// HOST Side
-	.RESET_N      ( KEY[0] ),
-	.CLK          ( SDRAM_CTRL_CLK ),
-	.WR1_DATA     ( {ov7670_gray, 2'b00} ),
-	.WR1          ( ov7670_pixel_valid ),
-	.WR1_ADDR     ( 0 ),
-	.WR1_MAX_ADDR ( 640*480 ),
-	.WR1_LENGTH   ( 256 ),
-	.WR1_LOAD     ( !DLY_RST_0 ),
-	.WR1_CLK      ( SDRAM_CTRL_CLK ),
-	// FIFO Read Side 1 (Leitura para o VGA)
-	.RD1_DATA     ( SDRAM_RD_DATA[9:0] ),
-	.RD1          ( READ_Request ),
-	.RD1_ADDR     ( 0 ),
-	.RD1_MAX_ADDR ( 640*480 ),
-	.RD1_LENGTH   ( 256 ),
-	.RD1_LOAD     ( !DLY_RST_1 ),
-	.RD1_CLK      ( VGA_CLK ),
-	// SDRAM Physical Side
-	.SA           ( DRAM_ADDR ),
-	.BA           ( DRAM_BA ),
-	.CS_N         ( DRAM_CS_N ),
-	.CKE          ( DRAM_CKE ),
-	.RAS_N        ( DRAM_RAS_N ),
-	.CAS_N        ( DRAM_CAS_N ),
-	.WE_N         ( DRAM_WE_N ),
-	.DQ           ( DRAM_DQ ),
-	.DQM          ( DRAM_DQM )
-);
+assign RED   = camera_video_active ? camera_gray : 8'h00;
+assign GREEN = camera_video_active ? camera_gray : 8'h00;
+assign BLUE  = camera_video_active ? camera_gray : 8'h00;
 
-assign RED   = SDRAM_RD_DATA[9:2];
-assign GREEN = SDRAM_RD_DATA[9:2];
-assign BLUE  = SDRAM_RD_DATA[9:2];
+// A SDRAM nao participa desta versao do caminho de video. Mantem os pinos em
+// estado inativo; o PLL de 100 MHz continua sendo usado pela configuracao SCCB.
+assign DRAM_ADDR  = 13'd0;
+assign DRAM_BA    = 2'b00;
+assign DRAM_CAS_N = 1'b1;
+assign DRAM_CKE   = 1'b0;
+assign DRAM_CS_N  = 1'b1;
+assign DRAM_DQ    = 32'hzzzzzzzz;
+assign DRAM_DQM   = 4'hF;
+assign DRAM_RAS_N = 1'b1;
+assign DRAM_WE_N  = 1'b1;
 
 //------ VGA Controller ------
 VGA_Controller u1 (
