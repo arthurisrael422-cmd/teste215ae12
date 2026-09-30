@@ -84,7 +84,7 @@ module Sdram_WR_FIFO (
 				.wrfull (),
 				.wrusedw ());
 	defparam
-		dcfifo_component.intended_device_family = "Cyclone V",
+		dcfifo_component.intended_device_family = "Cyclone IV E",
 		dcfifo_component.lpm_numwords = 1024,
 		dcfifo_component.lpm_showahead = "ON",
 		dcfifo_component.lpm_type = "dcfifo",

@@ -10,6 +10,7 @@
 	//Saida direta do pixel RGB565 montado no dominio de clk_100
 	output wire[15:0] pixel_out,
 	output wire pixel_valid,
+	output wire config_done,
 	//camera pinouts
 	input wire cmos_pclk,cmos_href,cmos_vsync,
 	input wire[7:0] cmos_db,
@@ -67,6 +68,10 @@
 	 //Pixel completo e pulso de validade expostos para o controlador SDRAM
 	 assign pixel_out   = pixel_q;
 	 assign pixel_valid = wr_en;
+	 // Permanece ativo depois que todos os registradores SCCB foram enviados
+	 // e a maquina entrou no estado de espera/captura de quadro.
+	 assign config_done = (message_index_q == (MSG_INDEX + 1)) &&
+	                      (state_q >= vsync_fedge);
 	 
 	 //buffer for all inputs coming from the camera
 	 reg pclk_1,pclk_2,href_1,href_2,vsync_1,vsync_2;
@@ -76,7 +81,7 @@
 				//{address,data}
 	 message[0]=16'h12_80;  //reset all register to default values
 	 message[1]=16'h12_04;  //set output format to RGB
-	 message[2]=16'h15_20;  //pclk will not toggle during horizontal blank
+	 message[2]=16'h15_00;  //COM10: PCLK livre, inclusive durante o blanking horizontal
 	 message[3]=16'h40_d0;	//RGB565
 	 
 	// These are values scalped from https://github.com/jonlwowski012/OV7670_NEXYS4_Verilog/blob/master/ov7670_registers_verilog.v
@@ -155,7 +160,7 @@
     message[73]= 16'ha9_90; //HAECC6
     message[74]= 16'haa_94; //HAECC7
     message[75]= 16'h13_e5; //COM8, enable AGC / AEC
-	 message[76]= 16'h1E_23; //Mirror Image
+	 message[76]= 16'h1E_00; //Imagem normal, sem mirror e sem flip
 	 message[77]= 16'h69_06; //gain of RGB(manually adjusted)
   end
 	 
@@ -168,6 +173,12 @@
 			start_delay_q<=0;
 			message_index_q<=0;
 			pixel_q<=0;
+			pclk_1<=0;
+			pclk_2<=0;
+			href_1<=0;
+			href_2<=0;
+			vsync_1<=0;
+			vsync_2<=0;
 			
 			sccb_state_q<=0;
 			addr_q<=0;

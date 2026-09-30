@@ -12,6 +12,66 @@
 					"strict" : false
 				},
 				{
+					"name" : "LEDR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[8]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[9]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[10]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[11]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[12]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[13]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[14]",
+					"strict" : false
+				},
+				{
 					"name" : "LEDR[15]",
 					"strict" : false
 				},
@@ -444,7 +504,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
 					"name" : "MIPI_PIXEL_CLK",
+					"strict" : false
+				},
+				{
+					"name" : "MIPI_PIXEL_VS",
+					"strict" : false
+				},
+				{
+					"name" : "MIPI_PIXEL_HS",
 					"strict" : false
 				},
 				{
@@ -456,35 +528,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "MIPI_PIXEL_VS",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[2]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[1]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[3]",
-					"strict" : false
-				},
-				{
 					"name" : "MIPI_PIXEL_D[0]",
-					"strict" : false
-				},
-				{
-					"name" : "MIPI_PIXEL_D[6]",
-					"strict" : false
-				},
-				{
-					"name" : "MIPI_PIXEL_D[2]",
-					"strict" : false
-				},
-				{
-					"name" : "MIPI_PIXEL_D[7]",
 					"strict" : false
 				},
 				{
@@ -492,7 +536,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "MIPI_PIXEL_D[5]",
+					"name" : "MIPI_PIXEL_D[2]",
 					"strict" : false
 				},
 				{
@@ -504,23 +548,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "MIPI_PIXEL_HS",
+					"name" : "MIPI_PIXEL_D[5]",
 					"strict" : false
 				},
 				{
-					"name" : "altera_reserved_tms",
+					"name" : "MIPI_PIXEL_D[6]",
 					"strict" : false
 				},
 				{
-					"name" : "altera_reserved_tck",
-					"strict" : false
-				},
-				{
-					"name" : "altera_reserved_tdi",
-					"strict" : false
-				},
-				{
-					"name" : "altera_reserved_tdo",
+					"name" : "MIPI_PIXEL_D[7]",
 					"strict" : false
 				}
 			]

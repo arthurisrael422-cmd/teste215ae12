@@ -86,7 +86,9 @@ module DE2_115_D8M_RTL (
 //=============================================================================
 // REG/WIRE declarations
 //=============================================================================
-wire	[15:0]	SDRAM_RD_DATA;
+wire	[31:0]	SDRAM_RD_DATA_BANK0;
+wire	[31:0]	SDRAM_RD_DATA_BANK1;
+wire	[31:0]	SDRAM_RD_DATA;
 wire			DLY_RST_0;
 wire			DLY_RST_1;
 wire			DLY_RST_2;
@@ -105,6 +107,52 @@ wire	[7:0]	B_AUTO;
 wire	[7:0]	G_AUTO;
 wire	[7:0]	R_AUTO;
 wire			RESET_N;
+wire camera_config_done;
+wire camera_config_error;
+wire [9:0] camera_sdram_data;
+wire [31:0] camera_sdram_word={22'd0,camera_sdram_data};
+wire camera_sdram_write, camera_frame_done, camera_frame_valid;
+wire [9:0] camera_pixels_last_line, camera_lines_last_frame;
+wire camera_capture_enable;
+wire camera_wr0_drained_sdram, camera_wr1_drained_sdram;
+reg camera_wr0_drain_meta, camera_wr0_drain_sync;
+reg camera_wr1_drain_meta, camera_wr1_drain_sync;
+reg camera_write_bank;
+reg camera_frame_sequence;
+reg camera_wait_drain;
+reg camera_wait_display;
+reg camera_wait_abort;
+reg camera_stream_error;
+reg [5:0] camera_drain_guard;
+reg camera_abort_toggle;
+reg camera_abort_ack_pclk_meta, camera_abort_ack_pclk_sync;
+reg display_sequence_pclk_meta, display_sequence_pclk_sync;
+reg frame_sequence_vga_meta, frame_sequence_vga_sync;
+reg displayed_frame_sequence;
+reg display_bank;
+reg vga_frame_valid;
+reg vga_vs_d;
+reg display_bank_sdram_meta, display_bank_sdram_sync;
+reg vga_valid_sdram_meta, vga_valid_sdram_sync;
+reg camera_abort_sdram_meta, camera_abort_sdram_sync;
+reg camera_abort_sdram_seen, camera_abort_ack_sdram;
+reg camera_write_bank_sdram_meta, camera_write_bank_sdram_sync;
+reg camera_abort_bank_sdram;
+reg [2:0] camera_abort_clear_count;
+wire camera_wr0_load;
+wire camera_wr1_load;
+localparam [22:0] FRAME_WORDS=23'd307200;
+localparam [22:0] BANK0_BASE=23'd0;
+localparam [22:0] BANK1_BASE=23'd307200;
+localparam [22:0] BANK1_MAX =23'd614400;
+
+assign camera_capture_enable = camera_config_done &&
+                               !camera_config_error &&
+                               !camera_wait_drain &&
+                               !camera_wait_display &&
+                               !camera_wait_abort;
+assign SDRAM_RD_DATA = display_bank ? SDRAM_RD_DATA_BANK1 :
+                                          SDRAM_RD_DATA_BANK0;
 
 // Sinais intermediários do processador de imagem (APPLICATION_BLOCK)
 wire	[7:0]	processed_VGA_R;
@@ -149,11 +197,11 @@ pll_test pll_ref(
 	.c0     ( MIPI_REFCLK ) // Fornece 24 MHz exatamente no pino PIN_AE22
 );
 
-//------ VGA REF CLOCK (25.18 MHz) --
+//------ VGA REF CLOCK (25.00 MHz; accepted 640x480 timing) --
 VIDEO_PLL pll_ref1(
 	.inclk0 ( CLOCK2_50 ),
 	.areset ( ~KEY[0] ),
-	.c0     ( VGA_CLK )     // 25.18 MHz para a varredura VGA
+	.c0     ( VGA_CLK )     // 50 MHz / 2 = 25.00 MHz
 );
 
 //------ SDRAM CLOCK GENERATOR (100 MHz) --
@@ -164,77 +212,207 @@ sdram_pll u6(
 	.c0     ( SDRAM_CTRL_CLK )  // 100MHZ 0 degree
 );
 
-// Barramento paralelo de 8 bits da câmera OV7670
+// A OV7670 possui D[7:0]. Nao selecionar dinamicamente outro recorte do
+// barramento: mudar os bits durante a captura corrompe a sequencia UYVY.
 wire [7:0] cmos_db_bus = MIPI_PIXEL_D[7:0];
 
-// Pixel RGB565 completo e pulso de validade produzidos pelo camera_interface.
-// Ambos pertencem ao domínio SDRAM_CTRL_CLK (100 MHz).
-wire [15:0] ov7670_rgb565;
-wire        ov7670_pixel_valid;
-
-//------ INSTANCIAÇÃO DO DRIVER DA CÂMERA OV7670 ------
-camera_interface camera_inst (
-	.clk         ( CLOCK_50 ),        // Clock síncrono de 50MHz da FPGA
-	.clk_100     ( SDRAM_CTRL_CLK ), // Clock de barramento de 100MHz
-	.rst_n       ( RESET_N ),        // Reset geral síncrono da placa
-	.key         ( KEY[3:0] ),       // Controle de brilho/contraste
-	.cmos_pclk   ( MIPI_PIXEL_CLK ), // PCLK lido do PIN_AC15
-	.cmos_href   ( MIPI_PIXEL_HS ),  // HREF lido do PIN_AG25
-	.cmos_vsync  ( MIPI_PIXEL_VS ),  // VSYNC lido do PIN_AF22
-	.cmos_db     ( cmos_db_bus ),    // Barramento de dados de 8 bits
-	.cmos_sda    ( CAMERA_I2C_SDA ), // I2C SDA no PIN_AE24
-	.cmos_scl    ( CAMERA_I2C_SCL ), // I2C SCL no PIN_AG22
-	.cmos_rst_n  ( ),
-	.cmos_pwdn   ( ),
-	.cmos_xclk   ( ),
-	.rd_en       ( 1'b0 ),
-	.dout        ( ),
-	.data_count_r( ),
-	.led         ( ),
-	.pixel_out   ( ov7670_rgb565 ),
-	.pixel_valid ( ov7670_pixel_valid )
+//------ CONFIGURACAO SCCB PROPRIA: OV7670 EM VGA/YUV422 ------
+ov7670_sccb_config camera_config (
+	.clk          ( CLOCK_50 ),
+	.reset_n      ( RESET_N ),
+	.scl          ( CAMERA_I2C_SCL ),
+	.sda          ( CAMERA_I2C_SDA ),
+	.config_done  ( camera_config_done ),
+	.config_error ( camera_config_error )
 );
 
 //=============================================================================
-// CONVERSÃO DO PIXEL RGB565 DA OV7670 PARA GRAYSCALE
+// CAPTURA NATIVA VGA YUV422. Toda a amostragem ocorre no PCLK.
 //=============================================================================
+ov7670_native_capture camera_capture(
+ .reset_n(RESET_N),
+ .enable(camera_capture_enable),
+ .pclk(MIPI_PIXEL_CLK),
+ .href(MIPI_PIXEL_HS),.vsync(MIPI_PIXEL_VS),.pixel_data(cmos_db_bus),
+ .pixel_word(camera_sdram_data),.pixel_write(camera_sdram_write),
+ .frame_done(camera_frame_done),.frame_valid(camera_frame_valid),
+ .pixels_last_line(camera_pixels_last_line),.lines_last_frame(camera_lines_last_frame));
 
-wire [7:0] ov7670_red;
-wire [7:0] ov7670_green;
-wire [7:0] ov7670_blue;
-wire [7:0] ov7670_gray;
+// Camera-domain half of the ping-pong protocol.  A completed bank is not
+// published until its write FIFO and active SDRAM burst are both empty.
+always @(posedge MIPI_PIXEL_CLK or negedge RESET_N) begin
+ if(!RESET_N) begin
+  camera_wr0_drain_meta<=1'b0; camera_wr0_drain_sync<=1'b0;
+  camera_wr1_drain_meta<=1'b0; camera_wr1_drain_sync<=1'b0;
+  display_sequence_pclk_meta<=1'b0; display_sequence_pclk_sync<=1'b0;
+  camera_write_bank<=1'b0;
+  camera_frame_sequence<=1'b0;
+  camera_wait_drain<=1'b0; camera_wait_display<=1'b0;
+  camera_wait_abort<=1'b0; camera_abort_toggle<=1'b0;
+  camera_abort_ack_pclk_meta<=1'b0; camera_abort_ack_pclk_sync<=1'b0;
+  camera_stream_error<=1'b0; camera_drain_guard<=6'd0;
+ end else begin
+  camera_wr0_drain_meta<=camera_wr0_drained_sdram;
+  camera_wr0_drain_sync<=camera_wr0_drain_meta;
+  camera_wr1_drain_meta<=camera_wr1_drained_sdram;
+  camera_wr1_drain_sync<=camera_wr1_drain_meta;
+  display_sequence_pclk_meta<=displayed_frame_sequence;
+  display_sequence_pclk_sync<=display_sequence_pclk_meta;
+  camera_abort_ack_pclk_meta<=camera_abort_ack_sdram;
+  camera_abort_ack_pclk_sync<=camera_abort_ack_pclk_meta;
 
-assign ov7670_red   = {ov7670_rgb565[15:11], ov7670_rgb565[15:13]};
-assign ov7670_green = {ov7670_rgb565[10:5],  ov7670_rgb565[10:9]};
-assign ov7670_blue  = {ov7670_rgb565[4:0],   ov7670_rgb565[4:2]};
+  if(camera_frame_done && !camera_wait_drain && !camera_wait_display &&
+     !camera_wait_abort) begin
+   if(camera_frame_valid) begin
+    camera_stream_error<=1'b0;
+    camera_wait_drain<=1'b1;
+    camera_drain_guard<=6'd0;
+   end else begin
+    // Discard the incomplete FIFO contents and rewind this bank. The last
+    // complete display frame remains visible while capture retries.
+    camera_stream_error<=1'b1;
+    camera_abort_toggle<=~camera_abort_toggle;
+    camera_wait_abort<=1'b1;
+   end
+  end
 
-RGB2GRAY grayscale_converter (
-	.i_RED       ( ov7670_red ),
-	.i_GREEN     ( ov7670_green ),
-	.i_BLUE      ( ov7670_blue ),
-	.o_GRAYSCALE ( ov7670_gray )
-);
+  if(camera_wait_drain) begin
+   if(camera_drain_guard != 6'h3F)
+    camera_drain_guard<=camera_drain_guard+1'b1;
+   else if((!camera_write_bank && camera_wr0_drain_sync) ||
+           ( camera_write_bank && camera_wr1_drain_sync)) begin
+    camera_frame_sequence<=~camera_frame_sequence;
+    camera_wait_drain<=1'b0;
+    camera_wait_display<=1'b1;
+   end
+  end
+
+  // The camera may reuse the other bank only after the VGA confirms that it
+  // changed banks during vertical blanking.  A camera frame can be skipped;
+  // a displayed frame can never be overwritten.
+  if(camera_wait_display &&
+     (display_sequence_pclk_sync==camera_frame_sequence)) begin
+   camera_wait_display<=1'b0;
+   camera_write_bank<=~camera_write_bank;
+  end
+
+  if(camera_wait_abort &&
+     (camera_abort_ack_pclk_sync==camera_abort_toggle)) begin
+   camera_wait_abort<=1'b0;
+  end
+ end
+end
+
+// VGA-domain half.  Bank selection changes only on the falling edge of VGA
+// VSYNC, while READ_Request is inactive.
+always @(posedge VGA_CLK or negedge RESET_N) begin
+ if(!RESET_N) begin
+  frame_sequence_vga_meta<=1'b0; frame_sequence_vga_sync<=1'b0;
+  displayed_frame_sequence<=1'b0;
+  display_bank<=1'b1;
+  vga_frame_valid<=1'b0;
+  vga_vs_d<=1'b1;
+ end else begin
+  frame_sequence_vga_meta<=camera_frame_sequence;
+  frame_sequence_vga_sync<=frame_sequence_vga_meta;
+  vga_vs_d<=VGA_VS;
+
+  if(vga_vs_d && !VGA_VS &&
+     (frame_sequence_vga_sync!=displayed_frame_sequence)) begin
+   // Banks alternate deterministically: sequence 1 publishes bank 0,
+   // sequence 0 publishes bank 1. Deriving it from the synchronized sequence
+   // avoids an incoherent two-signal clock-domain crossing.
+   display_bank<=~frame_sequence_vga_sync;
+   displayed_frame_sequence<=frame_sequence_vga_sync;
+   vga_frame_valid<=1'b1;
+  end
+ end
+end
+
+// Synchronize the VGA bank state before it controls the SDRAM-side arbiter.
+// The FIFO clear inputs are asynchronous by design, but the controller must
+// never make an arbitration decision from an unsynchronized VGA signal.
+always @(posedge SDRAM_CTRL_CLK or negedge RESET_N) begin
+ if(!RESET_N) begin
+  display_bank_sdram_meta<=1'b1; display_bank_sdram_sync<=1'b1;
+  vga_valid_sdram_meta<=1'b0; vga_valid_sdram_sync<=1'b0;
+  camera_abort_sdram_meta<=1'b0; camera_abort_sdram_sync<=1'b0;
+  camera_abort_sdram_seen<=1'b0; camera_abort_ack_sdram<=1'b0;
+  camera_write_bank_sdram_meta<=1'b0;
+  camera_write_bank_sdram_sync<=1'b0;
+  camera_abort_bank_sdram<=1'b0;
+  camera_abort_clear_count<=3'd0;
+ end else begin
+  display_bank_sdram_meta<=display_bank;
+  display_bank_sdram_sync<=display_bank_sdram_meta;
+  vga_valid_sdram_meta<=vga_frame_valid;
+  vga_valid_sdram_sync<=vga_valid_sdram_meta;
+  camera_abort_sdram_meta<=camera_abort_toggle;
+  camera_abort_sdram_sync<=camera_abort_sdram_meta;
+  camera_write_bank_sdram_meta<=camera_write_bank;
+  camera_write_bank_sdram_sync<=camera_write_bank_sdram_meta;
+
+  if(camera_abort_clear_count!=3'd0) begin
+   camera_abort_clear_count<=camera_abort_clear_count-1'b1;
+   if(camera_abort_clear_count==3'd1)
+    camera_abort_ack_sdram<=camera_abort_sdram_seen;
+  end else if(camera_abort_sdram_sync!=camera_abort_sdram_seen) begin
+   camera_abort_sdram_seen<=camera_abort_sdram_sync;
+   camera_abort_bank_sdram<=camera_write_bank_sdram_sync;
+   camera_abort_clear_count<=3'd7;
+  end
+ end
+end
+
+assign camera_wr0_load = !DLY_RST_0 ||
+                         ((camera_abort_clear_count!=3'd0) &&
+                          !camera_abort_bank_sdram);
+assign camera_wr1_load = !DLY_RST_0 ||
+                         ((camera_abort_clear_count!=3'd0) &&
+                           camera_abort_bank_sdram);
 
 //------ SDRAM CONTROLLER ------
 Sdram_Control u7 (
 	// HOST Side
 	.RESET_N      ( KEY[0] ),
 	.CLK          ( SDRAM_CTRL_CLK ),
-	.WR1_DATA     ( {ov7670_gray, 2'b00} ),
-	.WR1          ( ov7670_pixel_valid ),
-	.WR1_ADDR     ( 0 ),
-	.WR1_MAX_ADDR ( 640*480 ),
+	.WR1_DATA     ( camera_sdram_word ),
+	.WR1          ( camera_sdram_write && !camera_write_bank ),
+	.WR1_ADDR     ( BANK0_BASE ),
+	.WR1_MAX_ADDR ( FRAME_WORDS ),
 	.WR1_LENGTH   ( 256 ),
-	.WR1_LOAD     ( !DLY_RST_0 ),
-	.WR1_CLK      ( SDRAM_CTRL_CLK ),
+	.WR1_LOAD     ( camera_wr0_load ),
+	.WR1_CLK      ( MIPI_PIXEL_CLK ),
+	// FIFO Write Side 2: framebuffer bank 1
+	.WR2_DATA     ( camera_sdram_word ),
+	.WR2          ( camera_sdram_write && camera_write_bank ),
+	.WR2_ADDR     ( BANK1_BASE ),
+	.WR2_MAX_ADDR ( BANK1_MAX ),
+	.WR2_LENGTH   ( 256 ),
+	.WR2_LOAD     ( camera_wr1_load ),
+	.WR2_CLK      ( MIPI_PIXEL_CLK ),
+	.WR1_DRAINED  ( camera_wr0_drained_sdram ),
+	.WR2_DRAINED  ( camera_wr1_drained_sdram ),
 	// FIFO Read Side 1 (Leitura para o VGA)
-	.RD1_DATA     ( SDRAM_RD_DATA[9:0] ),
-	.RD1          ( READ_Request ),
-	.RD1_ADDR     ( 0 ),
-	.RD1_MAX_ADDR ( 640*480 ),
+	.RD1_DATA     ( SDRAM_RD_DATA_BANK0 ),
+	.RD1          ( READ_Request && vga_frame_valid && !display_bank ),
+	.RD1_ADDR     ( BANK0_BASE ),
+	.RD1_MAX_ADDR ( FRAME_WORDS ),
 	.RD1_LENGTH   ( 256 ),
-	.RD1_LOAD     ( !DLY_RST_1 ),
+	// Keep an inactive read FIFO empty.  On a bank swap it is released and
+	// prefetched from that bank's base address during VGA vertical blanking.
+	.RD1_LOAD     ( !DLY_RST_1 || !vga_valid_sdram_sync ||
+	                display_bank_sdram_sync ),
 	.RD1_CLK      ( VGA_CLK ),
+	// FIFO Read Side 2: framebuffer bank 1
+	.RD2_DATA     ( SDRAM_RD_DATA_BANK1 ),
+	.RD2          ( READ_Request && vga_frame_valid && display_bank ),
+	.RD2_ADDR     ( BANK1_BASE ),
+	.RD2_MAX_ADDR ( BANK1_MAX ),
+	.RD2_LENGTH   ( 256 ),
+	.RD2_LOAD     ( !DLY_RST_1 || !vga_valid_sdram_sync ||
+	                !display_bank_sdram_sync ),
+	.RD2_CLK      ( VGA_CLK ),
 	// SDRAM Physical Side
 	.SA           ( DRAM_ADDR ),
 	.BA           ( DRAM_BA ),
@@ -247,9 +425,9 @@ Sdram_Control u7 (
 	.DQM          ( DRAM_DQM )
 );
 
-assign RED   = SDRAM_RD_DATA[9:2];
-assign GREEN = SDRAM_RD_DATA[9:2];
-assign BLUE  = SDRAM_RD_DATA[9:2];
+assign RED   = vga_frame_valid ? SDRAM_RD_DATA[9:2] : 8'h00;
+assign GREEN = vga_frame_valid ? SDRAM_RD_DATA[9:2] : 8'h00;
+assign BLUE  = vga_frame_valid ? SDRAM_RD_DATA[9:2] : 8'h00;
 
 //------ VGA Controller ------
 VGA_Controller u1 (
@@ -324,6 +502,15 @@ CLOCKMEM ck3 (
 	.CK_1HZ   ( D8M_CK_HZ3 )
 );
 
-assign LEDR = { D8M_CK_HZ, D8M_CK_HZ2, D8M_CK_HZ3, 15'h0 };
+// Diagnostico: clocks, SCCB e dimensoes recebidas da camera.
+assign LEDR[17]   = D8M_CK_HZ;
+assign LEDR[16]   = D8M_CK_HZ2;
+assign LEDR[15]   = D8M_CK_HZ3;
+assign LEDR[14:5] = camera_pixels_last_line;
+assign LEDR[4]    = camera_frame_sequence;
+assign LEDR[3]    = camera_config_error;
+assign LEDR[2]    = camera_stream_error;
+assign LEDR[1]    = camera_config_done;
+assign LEDR[0]    = vga_frame_valid;
 
 endmodule

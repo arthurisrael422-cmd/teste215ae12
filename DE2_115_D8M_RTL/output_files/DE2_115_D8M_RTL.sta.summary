@@ -2,268 +2,304 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1200mV 85C Model Setup 'OV7670_PCLK'
+Slack : -3.787
+TNS   : -13.695
+
+Type  : Slow 1200mV 85C Model Setup 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -3.148
+TNS   : -3.148
+
+Type  : Slow 1200mV 85C Model Setup 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -3.094
+TNS   : -6.013
+
 Type  : Slow 1200mV 85C Model Setup 'CLOCK2_50'
-Slack : 5.460
+Slack : 10.152
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : 8.258
+Slack : 14.167
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Setup 'CLOCK3_50'
-Slack : 14.155
+Type  : Slow 1200mV 85C Model Setup 'pll_ref|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 34.879
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Setup 'MIPI_PIXEL_CLK'
-Slack : 35.508
+Type  : Slow 1200mV 85C Model Hold 'OV7670_PCLK'
+Slack : -0.933
+TNS   : -0.933
+
+Type  : Slow 1200mV 85C Model Hold 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.311
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Setup 'altera_reserved_tck'
-Slack : 44.491
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.380
+Type  : Slow 1200mV 85C Model Hold 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.386
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK2_50'
-Slack : 0.401
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'altera_reserved_tck'
 Slack : 0.402
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'CLOCK3_50'
-Slack : 0.404
+Type  : Slow 1200mV 85C Model Hold 'pll_ref|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.402
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'MIPI_PIXEL_CLK'
-Slack : 0.440
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.403
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Recovery 'CLOCK2_50'
-Slack : 10.481
+Type  : Slow 1200mV 85C Model Recovery 'OV7670_PCLK'
+Slack : -3.780
+TNS   : -780.852
+
+Type  : Slow 1200mV 85C Model Recovery 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.396
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Recovery 'CLOCK_50'
-Slack : 10.488
+Type  : Slow 1200mV 85C Model Recovery 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.749
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Recovery 'altera_reserved_tck'
-Slack : 95.526
+Type  : Slow 1200mV 85C Model Removal 'OV7670_PCLK'
+Slack : 1.435
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Removal 'altera_reserved_tck'
-Slack : 1.252
+Type  : Slow 1200mV 85C Model Removal 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 2.755
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Removal 'CLOCK2_50'
-Slack : 6.314
+Type  : Slow 1200mV 85C Model Removal 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 3.330
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Removal 'CLOCK_50'
-Slack : 6.378
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK2_50'
-Slack : 9.439
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.696
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.575
+Slack : 9.683
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : 9.685
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK3_50'
-Slack : 9.722
+Slack : 9.818
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MIPI_PIXEL_CLK'
-Slack : 19.683
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.609
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.484
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'OV7670_PCLK'
+Slack : 20.416
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGA_HS'
-Slack : 66662.456
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pll_ref|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 20.536
 TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'OV7670_PCLK'
+Slack : -3.549
+TNS   : -12.737
+
+Type  : Slow 1200mV 0C Model Setup 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -2.814
+TNS   : -2.814
+
+Type  : Slow 1200mV 0C Model Setup 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -2.758
+TNS   : -5.347
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK2_50'
-Slack : 6.768
+Slack : 10.834
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : 9.312
+Slack : 14.692
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'CLOCK3_50'
-Slack : 14.683
+Type  : Slow 1200mV 0C Model Setup 'pll_ref|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 35.496
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'MIPI_PIXEL_CLK'
-Slack : 35.812
+Type  : Slow 1200mV 0C Model Hold 'OV7670_PCLK'
+Slack : -0.804
+TNS   : -0.804
+
+Type  : Slow 1200mV 0C Model Hold 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.315
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 45.045
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.336
+Type  : Slow 1200mV 0C Model Hold 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.338
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK2_50'
 Slack : 0.353
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'altera_reserved_tck'
-Slack : 0.353
+Type  : Slow 1200mV 0C Model Hold 'pll_ref|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.354
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'CLOCK3_50'
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
 Slack : 0.355
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'MIPI_PIXEL_CLK'
-Slack : 0.387
+Type  : Slow 1200mV 0C Model Recovery 'OV7670_PCLK'
+Slack : -3.461
+TNS   : -711.155
+
+Type  : Slow 1200mV 0C Model Recovery 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 2.321
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : 11.486
+Type  : Slow 1200mV 0C Model Recovery 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 5.267
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Recovery 'CLOCK2_50'
-Slack : 11.544
+Type  : Slow 1200mV 0C Model Removal 'OV7670_PCLK'
+Slack : 1.319
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 95.970
+Type  : Slow 1200mV 0C Model Removal 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 2.444
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 1.153
+Type  : Slow 1200mV 0C Model Removal 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 2.974
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Removal 'CLOCK2_50'
-Slack : 5.579
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 5.626
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK2_50'
-Slack : 9.440
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.686
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.554
+Slack : 9.688
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK2_50'
+Slack : 9.693
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK3_50'
-Slack : 9.716
+Slack : 9.827
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MIPI_PIXEL_CLK'
-Slack : 19.731
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.636
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.397
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'OV7670_PCLK'
+Slack : 20.466
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGA_HS'
-Slack : 66662.456
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pll_ref|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 20.537
 TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'OV7670_PCLK'
+Slack : -2.133
+TNS   : -7.846
+
+Type  : Fast 1200mV 0C Model Setup 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.621
+TNS   : -1.621
+
+Type  : Fast 1200mV 0C Model Setup 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.591
+TNS   : -3.087
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK2_50'
-Slack : 11.017
+Slack : 14.633
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : 11.466
+Slack : 17.065
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'CLOCK3_50'
-Slack : 17.130
+Type  : Fast 1200mV 0C Model Setup 'pll_ref|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 38.281
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'MIPI_PIXEL_CLK'
-Slack : 37.849
+Type  : Fast 1200mV 0C Model Hold 'OV7670_PCLK'
+Slack : -0.561
+TNS   : -0.683
+
+Type  : Fast 1200mV 0C Model Hold 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.114
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 47.545
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.154
+Type  : Fast 1200mV 0C Model Hold 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.174
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK2_50'
-Slack : 0.180
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'altera_reserved_tck'
 Slack : 0.181
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'CLOCK3_50'
+Type  : Fast 1200mV 0C Model Hold 'pll_ref|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
 Slack : 0.182
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'MIPI_PIXEL_CLK'
-Slack : 0.201
+Type  : Fast 1200mV 0C Model Recovery 'OV7670_PCLK'
+Slack : -2.057
+TNS   : -437.687
+
+Type  : Fast 1200mV 0C Model Recovery 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 5.454
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Recovery 'CLOCK2_50'
-Slack : 14.822
+Type  : Fast 1200mV 0C Model Recovery 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 7.220
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : 14.852
+Type  : Fast 1200mV 0C Model Removal 'OV7670_PCLK'
+Slack : 0.791
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 97.594
+Type  : Fast 1200mV 0C Model Removal 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.406
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 0.582
+Type  : Fast 1200mV 0C Model Removal 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.757
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Removal 'CLOCK2_50'
-Slack : 3.355
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 3.366
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'u6|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.754
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.153
+Slack : 9.265
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK2_50'
-Slack : 9.162
+Slack : 9.271
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK3_50'
-Slack : 9.263
+Slack : 9.437
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MIPI_PIXEL_CLK'
-Slack : 19.223
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pll_ref1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.756
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.282
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'OV7670_PCLK'
+Slack : 19.970
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'VGA_HS'
-Slack : 66662.666
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pll_ref|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 20.606
 TNS   : 0.000
 
 ------------------------------------------------------------
