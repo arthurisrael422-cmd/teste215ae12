@@ -1,0 +1,47 @@
+OV7670 + CNN - R9 CENTRALIZACAO E GANHO
+========================================
+
+Base
+----
+Esta versao deriva diretamente da R8B HIST100 M9K otimizada. O caminho da
+camera, o framebuffer, a VGA, a ROI 90x90, a CNN e o historico de 100
+registros foram preservados.
+
+Alteracao
+---------
+Foi adicionado CNN/cnn_center_gain_30x30.v entre roi_cnn_reader e cam2cnn.
+O modulo recebe a matriz 30x30, aplica ganho x2 com saturacao em 255,
+calcula o centro de massa ponderado e desloca a imagem para (14,5;14,5).
+As regioes abertas pelo deslocamento recebem zero.
+
+O historico e o modo VGA SW[2] agora guardam e mostram a imagem efetivamente
+entregue a CNN, ja corrigida.
+
+Motivacao experimental
+----------------------
+No conjunto de 100 capturas:
+  entrada original da FPGA:             55/100
+  somente centralizacao ponderada:       72/100
+  centralizacao ponderada + ganho x2:    75/100
+  MNIST direto no modelo bit-accurate:   77/100
+
+Arquivos alterados
+------------------
+DE2_115_D8M_RTL/DE2_115_D8M_RTL.v
+DE2_115_D8M_RTL/DE2_115_D8M_RTL.qsf
+
+Arquivo novo
+------------
+DE2_115_D8M_RTL/CNN/cnn_center_gain_30x30.v
+
+Uso
+---
+Abra DE2_115_D8M_RTL.qpf no Quartus Prime Lite 18.1, execute Full
+Compilation e programe o novo .sof. Os controles permanecem iguais a R8.
+
+Importante
+----------
+Depois de programar, refaca as 100 capturas. Os registros antigos nao sao
+preservados durante a reprogramacao. O relatorio novo devera ser comparado
+com o resultado de 75% obtido offline; pequenas diferencas indicam casos de
+arredondamento na decisao do deslocamento.

@@ -1,0 +1,43 @@
+ALTERACOES - HISTORICO CIRCULAR DE 32 REGISTROS
+================================================
+
+Novo modulo
+-----------
+DE2_115_D8M_RTL/CNN/cnn_history_32.v
+
+Para cada classificacao ele armazena:
+- 900 pixels de 8 bits que foram efetivamente aceitos pela CNN;
+- rotulo real de SW[7:4];
+- classe prevista pela CNN;
+- bit de validade.
+
+A memoria de pixels possui 28.800 bytes. O endereco linear e calculado como:
+
+  endereco = registro * 900 + pixel
+
+O fator 900 foi implementado por deslocamentos e somas, sem multiplicador:
+
+  900 = 512 + 256 + 128 + 4
+
+A memoria de pixels usa uma instancia explicita altsyncram de 32.768 x 8 bits
+em blocos M9K. Embora apenas 28.800 enderecos sejam usados, a profundidade em
+potencia de dois impede que o Quartus 18.1 tente implementar o array em
+registradores logicos.
+
+Politica circular
+-----------------
+Os registros sao escritos de 00 ate 31. A classificacao seguinte volta ao
+registro 00 e sobrescreve o dado mais antigo. A memoria e volatil e perde os
+dados quando a placa e desligada ou reprogramada.
+
+O que nao foi alterado
+----------------------
+- captura OV7670;
+- configuracao SCCB;
+- framebuffer de preview e ROI;
+- reducao 90x90 para 30x30 do cam2cnn;
+- pesos, biases e camadas da CNN;
+- temporizacao VGA.
+
+Esta versao valida primeiro armazenamento e navegacao. A exposicao da RAM ao
+In-System Memory Content Editor/JTAG deve ser feita somente depois deste teste.

@@ -1,0 +1,90 @@
+R5 - DOCUMENTO HISTORICO (SUPERADO PELA R6)
+===================================
+
+ATENCAO: este texto descreve a versao anterior com max-pooling.
+Para a versao atual, leia primeiro LEIA_ME_R6_MEDIA.txt.
+
+Projeto Quartus:
+  DE2_115_D8M_RTL/DE2_115_D8M_RTL.qpf
+
+Objetivo
+--------
+Esta versao corrige somente o pre-processamento entre a ROI 90x90 e a CNN.
+Captura da OV7670, framebuffer, exibicao VGA, pesos da CNN e historico de 32
+registros foram preservados.
+
+O problema observado na R4
+---------------------------
+A R4 pegava um pixel a cada tres pixels da ROI. Assim, o algarismo podia ficar
+deslocado, pequeno ou com tracos finos ausentes na matriz 30x30. A CNN recebia
+uma imagem diferente do padrao centralizado usado pelo MNIST.
+
+O que a R5 faz
+--------------
+1. Le todos os 8100 pixels da ROI 90x90.
+2. Considera como traco cada pixel de cinza menor ou igual a 100.
+3. Encontra os limites esquerdo, direito, superior e inferior do algarismo.
+4. Forma uma caixa quadrada que preserva a proporcao do algarismo.
+5. Redimensiona essa caixa para uma area de 20x20.
+6. Centraliza a area em uma matriz preta de 30x30 (margem de 5 pixels).
+7. Usa o maior valor de cada celula de origem para preservar tracos finos.
+8. Entrega exatamente 900 pixels para a CNN.
+
+Arquivos alterados
+------------------
+DE2_115_D8M_RTL/CNN/roi_cnn_reader.v
+  Implementa busca da caixa, redimensionamento, centralizacao e max-pooling.
+
+DE2_115_D8M_RTL/DE2_115_D8M_RTL.v
+  Altera PIC_DIM_MULTIPLIER de 3 para 1, pois roi_cnn_reader agora entrega
+  diretamente os 900 pixels finais. Nao ha nova reducao dentro de cam2cnn.
+
+Procedimento de compilacao
+-------------------------
+1. Extraia esta pasta em um caminho novo.
+2. Abra DE2_115_D8M_RTL/DE2_115_D8M_RTL.qpf no Quartus Prime 18.1.
+3. Execute Processing > Start Compilation.
+4. Programe output_files/DE2_115_D8M_RTL.sof.
+5. Pressione KEY[0] para reiniciar todo o circuito.
+
+Ordem obrigatoria dos testes
+----------------------------
+Teste A - CNN sem camera:
+  a. Coloque SW[3]=1.
+  b. Pressione KEY[1] uma vez.
+  c. O display deve continuar indicando 7 para mnist_test_digit.hex.
+  Se falhar, nao teste a camera: confirme o arquivo HEX e a compilacao.
+
+Teste B - entrada normalizada da camera:
+  a. Coloque SW[3]=0.
+  b. Escreva um digito escuro, grosso e isolado sobre fundo branco.
+  c. Posicione o digito inteiro dentro do quadrado verde.
+  d. Ajuste SW[7:4] para o valor real e pressione KEY[1].
+  e. Coloque SW[2]=1. A tela deve mostrar o digito centralizado, ocupando
+     aproximadamente 20x20 pixels dentro da representacao 30x30.
+  f. HEX7 mostra a previsao; HEX4 mostra o valor real informado.
+
+Teste C - novo conjunto de 32 amostras:
+  Capture novamente amostras controladas e exporte-as com exportar_hist32.tcl.
+  Os registros antigos da R4 nao permanecem depois da reprogramacao e tambem
+  nao representam este novo pre-processamento.
+
+Observacoes importantes
+-----------------------
+- SW[2] mostra exatamente a matriz que entrou na CNN; esta e a verificacao
+  principal da normalizacao.
+- Se ruido ou a borda do papel aparecerem como traco, eles aumentarao a caixa
+  encontrada. Nesse caso melhore a iluminacao e mantenha apenas o algarismo
+  dentro da ROI.
+- A classificacao demora mais que na R4 porque sao feitas duas passagens de
+  leitura, mas isso ocorre somente quando KEY[1] solicita uma classificacao.
+- A captura e o video VGA continuam funcionando em paralelo.
+
+Validacao desta entrega
+-----------------------
+- Enderecos da ROI limitados a 0..8099.
+- Latencia registrada da RAM considerada antes de cada pixel utilizado.
+- Saida limitada a 30x30 = 900 pixels validos.
+- Geometria conferida para algarismos estreitos, largos e altos.
+- A compilacao final deve ser executada no Quartus Prime 18.1, pois o ambiente
+  em que o pacote foi montado nao possui as ferramentas Intel instaladas.

@@ -1,0 +1,54 @@
+TESTE 1 - AUTOTESTE ISOLADO DA CNN
+=================================
+
+Objetivo
+--------
+Comprovar o nucleo da CNN, pesos, biases, memorias internas, camadas e saida
+sem utilizar camera, ROI, limiar ou reducao 90x90 para 30x30.
+
+Imagem utilizada
+----------------
+CNN/mnist_test_digit.hex contem 900 pixels (30x30) do digito 7 original.
+Essa amostra foi validada na placa e o resultado correto e HEX7 = 7.
+
+Procedimento na placa
+---------------------
+1. Compile DE2_115_D8M_RTL/DE2_115_D8M_RTL.qpf.
+2. Grave o novo arquivo SOF.
+3. Pressione KEY[0] para resetar.
+4. Coloque SW[3] em nivel logico 1.
+5. Confirme que LEDG[4] acendeu. Ele indica modo de autoteste.
+6. Pressione e solte KEY[1] uma vez.
+7. Aguarde LEDG[0] acender.
+8. Leia HEX7.
+
+Resultado esperado
+------------------
+LEDG[0] = 1 e HEX7 = 7.
+
+Interpretacao
+-------------
+HEX7 = 7:
+  O nucleo da CNN funciona. O problema de acuracia esta antes dela, no caminho
+  ROI, limiar, reducao ou geometria da imagem. O proximo passo e SW[2] mostrando
+  exatamente a imagem 30x30 que chega a CNN.
+
+HEX7 diferente de 4:
+  Nao alterar a camera. Investigar pesos, biases, ordem dos 900 pixels, reset e
+  sintese das memorias da CNN.
+
+LEDG[0] nao acende:
+  A CNN nao gerou digit_valid. Observar selftest_pixel_valid, digit_valid e
+  classified_digit no SignalTap.
+
+Voltar ao modo camera
+---------------------
+1. Coloque SW[3] em zero.
+2. Pressione KEY[0].
+3. Posicione o numero na ROI.
+4. Pressione KEY[1] para classificar a imagem da camera.
+
+SW[2]
+-----
+Permanece reservado para a proxima etapa: exibicao ampliada da entrada real
+30x30, depois do limiar, inversao e subamostragem.

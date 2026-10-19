@@ -1,0 +1,8 @@
+Registros validos: 100
+Acertos: 9
+Erros: 91
+Acuracia: 9.00%
+Versao do formato: 4
+Contador gravado: 100
+Proximo registro: 0
+Ultimo registro: 99

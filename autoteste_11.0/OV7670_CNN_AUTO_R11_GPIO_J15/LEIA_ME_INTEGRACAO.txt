@@ -1,0 +1,48 @@
+OV7670 + VGA + CNN MNIST - INTEGRACAO COM HISTORICO
+===================================================
+
+Fluxo funcional:
+
+  OV7670 -> framebuffer preview/ROI -> roi_cnn_reader -> cam2cnn -> CNN
+                                                        |          |
+                                                        |          +-> previsto
+                                                        +-> 900 pixels
+                                                                  |
+                                                        cnn_history_32
+
+O historico recebe exatamente pixel_i e pixel_i_valid que entram no nucleo.
+Ele nao refaz a reducao e nao le novamente a camera. Assim, a imagem exibida
+e a mesma entrada usada para produzir o resultado associado.
+
+Conteudo de cada registro:
+- 900 pixels de 8 bits;
+- numero real capturado de SW[7:4] no inicio;
+- numero previsto capturado em digit_valid;
+- bit de validade.
+
+O ponteiro de escrita percorre 00..31 e volta a 00. O registro selecionado
+passa automaticamente a ser o ultimo concluido. KEY[2] e KEY[3] permitem
+navegar pelos enderecos fisicos. Enderecos nunca gravados aparecem invalidos.
+
+Indicadores:
+LEDR[0]: configuracao SCCB concluida.
+LEDR[1]: quadro completo capturado.
+LEDR[2]: quadro liberado para VGA/CNN.
+LEDG[0]: classificacao concluida.
+LEDG[1]: processamento ocupado.
+LEDG[2]: quadro disponivel.
+LEDG[3]: camera configurada.
+LEDG[4]: autoteste selecionado.
+LEDG[5]: existe pelo menos um registro.
+LEDG[6]: registro selecionado e valido.
+
+O que permaneceu inalterado:
+- SCCB e captura YUV422 da OV7670;
+- bancos ping-pong de preview e ROI;
+- temporizacao VGA;
+- limiar do roi_cnn_reader;
+- reducao 90x90 para 30x30;
+- pesos, biases e camadas da CNN.
+
+A memoria ainda nao esta exposta ao In-System Memory Content Editor. Primeiro
+devem ser validados compilacao, gravacao, associacao do resultado e navegacao.

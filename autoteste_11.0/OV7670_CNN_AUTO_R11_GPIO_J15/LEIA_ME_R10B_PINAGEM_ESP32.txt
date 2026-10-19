@@ -1,0 +1,27 @@
+R10B - LIGACAO DE2-115 J15 AO ESP32
+===================================
+
+Desligue as duas placas antes de montar.
+
+DE2-115 J15 pino 14 / GPIO[13] -> ESP32 GPIO18 : previsao bit 0
+DE2-115 J15 pino 15 / GPIO[14] -> ESP32 GPIO19 : previsao bit 1
+DE2-115 J15 pino 16 / GPIO[15] -> ESP32 GPIO21 : previsao bit 2
+DE2-115 J15 pino 17 / GPIO[16] -> ESP32 GPIO22 : previsao bit 3
+DE2-115 J15 pino 18 / GPIO[17] -> ESP32 GPIO23 : result_toggle
+
+Opcional:
+DE2-115 J15 pino 20 / GPIO[19] -> ESP32 GPIO25 : processing_busy
+DE2-115 J15 pino 22 / GPIO[21] -> ESP32 GPIO26 : frame_seen_vga
+
+Terra comum:
+DE2-115 J15 pino 28 ou pino 40 -> ESP32 GND
+
+NAO CONECTAR:
+J15 pino 9  = 5 V
+J15 pino 27 = 3,3 V
+
+Os cinco sinais obrigatorios ficam nos pinos fisicos consecutivos 14, 15,
+16, 17 e 18. O numero do pino fisico nao e igual ao indice GPIO.
+
+O microcontrolador detecta qualquer mudanca em result_toggle, espera 100 us
+e entao le os quatro bits. A FPGA permanece sendo acionada por KEY[1].

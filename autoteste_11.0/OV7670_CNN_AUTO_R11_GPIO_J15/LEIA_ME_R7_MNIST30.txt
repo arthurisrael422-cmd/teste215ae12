@@ -1,0 +1,85 @@
+R7 - AUTOTESTE COM 30 IMAGENS OFICIAIS DO MNIST
+================================================
+
+Objetivo
+--------
+Testar separadamente a CNN com tres imagens de cada classe, sem camera e sem o
+pre-processamento da ROI. As 30 imagens vieram exclusivamente do conjunto
+oficial de teste t10k do MNIST, separado das 60000 imagens de treinamento.
+
+Fonte
+-----
+Espelho dos arquivos originais publicados para o MNIST:
+  https://github.com/fgnt/mnist
+
+Arquivos utilizados:
+  t10k-images-idx3-ubyte.gz
+  t10k-labels-idx1-ubyte.gz
+
+Assinaturas dos arquivos baixados:
+  imagens SHA256: 8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6
+  rotulos SHA256: f7ae60f92e00ec6debd23a6088c31dbd2371eca3ffa0defaefb259924204aec6
+  imagens MD5:    9fb629c4189551a2d022fa330f9573f3
+  rotulos MD5:    ec29112dd5afa0611ce80d1b7f02629c
+
+Os indices exatos e a assinatura de cada imagem estao em:
+  DE2_115_D8M_RTL/CNN/mnist_test_30_indices.csv
+
+Conversao
+---------
+Cada imagem t10k possui 28x28 pixels em escala de cinza. Foi adicionada somente
+uma borda preta de um pixel em cada lado, formando 30x30. Nao houve limiar,
+redimensionamento, interpolacao nem alteracao das intensidades.
+
+O antigo mnist_test_digit.hex foi comparado byte a byte com o indice 0 do t10k,
+rotulado como 7. A correspondencia foi exata, confirmando a mesma convencao.
+
+Controles do autoteste
+----------------------
+  SW[3]   = 1: ativa autoteste MNIST em lugar da camera.
+  SW[7:4] = classe desejada em binario, de 0 a 9.
+  SW[9:8] = amostra: 00=primeira, 01=segunda, 10=terceira.
+  KEY[1]  = executa a classificacao selecionada.
+  KEY[0]  = reset geral.
+
+Exemplo:
+  testar a segunda imagem do digito 6:
+    SW[3]=1, SW[7:4]=0110, SW[9:8]=01; depois pressione KEY[1].
+
+Resultado
+---------
+  HEX7 mostra a previsao da CNN.
+  LEDG[0] acende quando o resultado e valido.
+
+O rotulo real gravado no historico e automatico no modo de autoteste. Portanto,
+nao e necessario informar separadamente o resultado esperado.
+
+Procedimento para testar as 30 imagens
+--------------------------------------
+1. Compile e programe a R7.
+2. Pressione KEY[0].
+3. Coloque SW[3]=1.
+4. Para cada digito 0..9, selecione SW[7:4].
+5. Para cada digito, teste SW[9:8]=00, 01 e 10, pressionando KEY[1] uma vez em
+   cada combinacao e aguardando LEDG[0].
+6. Depois das 30 classificacoes, SW[2]=1 permite revisar as entradas e saidas.
+7. Exporte o historico pelo mesmo procedimento JTAG usado anteriormente.
+
+Observacao sobre o historico
+----------------------------
+O historico possui 32 posicoes. As 30 imagens cabem em uma unica rodada. Para
+facilitar a analise, execute na ordem: digito 0 amostras 0..2, digito 1
+amostras 0..2, ate digito 9 amostras 0..2.
+
+Arquivos alterados
+------------------
+  CNN/cnn_selftest_source.v: ROM e selecao das 30 imagens.
+  DE2_115_D8M_RTL.v: seletores, rotulo automatico e EOF do autoteste.
+
+Arquivos adicionados
+--------------------
+  CNN/mnist_test_30.hex: 27000 bytes, 30 imagens de 900 pixels.
+  CNN/mnist_test_30_indices.csv: proveniencia de cada imagem.
+
+Camera, framebuffer, normalizacao R6, VGA, pesos e arquitetura da CNN nao foram
+alterados.

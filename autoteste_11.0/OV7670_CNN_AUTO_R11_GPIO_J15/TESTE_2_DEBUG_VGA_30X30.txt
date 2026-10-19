@@ -1,0 +1,60 @@
+TESTE 2 - HISTORICO DE 32 ENTRADAS 30X30 DA CNN
+=================================================
+
+Objetivo
+--------
+Guardar as ultimas 32 imagens aceitas pelo nucleo da CNN, junto com o numero
+real e o resultado previsto. Cada pixel 30x30 ocupa um bloco 16x16 na VGA.
+
+Teste com a camera
+------------------
+1. Grave o novo SOF.
+2. Deixe SW[3]=0 para selecionar a camera.
+3. Ajuste SW[7:4] para o valor real do digito mostrado a camera.
+4. Deixe SW[2]=0 e posicione o digito dentro do quadrado verde.
+5. Pressione KEY[1] uma vez para classificar.
+6. Aguarde LEDG[0] e LEDG[5] acenderem.
+7. Repita para formar varios registros.
+8. Coloque SW[2]=1 para abrir o historico.
+9. Use KEY[2] para voltar e KEY[3] para avancar.
+
+Teste de referencia
+-------------------
+1. Coloque SW[3]=1.
+2. Pressione KEY[0] para resetar e solte.
+3. Pressione KEY[1] uma vez.
+4. Aguarde LEDG[0] e LEDG[5].
+5. Coloque SW[2]=1 para ver a imagem do arquivo HEX. Use SW[7:4]=7
+   antes de iniciar para que o rotulo real armazenado tambem seja 7.
+
+Chaves e indicadores
+--------------------
+SW[1]=1: amplia a ROI 90x90 original.
+SW[2]=1: abre o historico 30x30.
+SW[3]=1: seleciona o autoteste; SW[3]=0 seleciona a camera.
+SW[7:4]: informa o numero real antes de pressionar KEY[1].
+KEY[2]: registro anterior (somente com SW[2]=1).
+KEY[3]: proximo registro (somente com SW[2]=1).
+LEDG[0]: classificacao concluida.
+LEDG[1]: processamento ocupado.
+LEDG[4]: autoteste selecionado.
+LEDG[5]: existe pelo menos um registro concluido.
+LEDG[6]: o endereco atualmente selecionado contem um registro valido.
+HEX7: resultado previsto pela CNN.
+HEX6 e HEX5: indice decimal do registro, de 00 a 31.
+HEX4: numero real que estava em SW[7:4] quando o registro foi iniciado.
+
+Imagem correta
+--------------
+Fundo preto, digito claro, centralizado, sem fragmentacao, com proporcao
+parecida com uma amostra MNIST. Se a imagem estiver ruim aqui, o problema esta
+na ROI, limiarizacao ou reducao 90x90 para 30x30, antes do nucleo CNN.
+
+Validacao dos 32 registros
+--------------------------
+1. Grave pelo menos tres digitos diferentes, mudando SW[7:4] antes de KEY[1].
+2. Ative SW[2]. O registro mais recente deve aparecer automaticamente.
+3. Confira imagem, HEX7 (previsto), HEX6/5 (indice) e HEX4 (real).
+4. Navegue com KEY[2]/KEY[3]. Cada toque deve alterar exatamente um indice.
+5. Enderecos ainda vazios ficam com VGA preta, HEX7/HEX4 apagados e LEDG[6]=0.
+6. Depois de 32 registros, a proxima classificacao sobrescreve o registro 00.

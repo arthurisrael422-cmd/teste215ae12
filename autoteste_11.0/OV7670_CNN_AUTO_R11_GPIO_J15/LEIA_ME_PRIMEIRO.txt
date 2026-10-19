@@ -1,0 +1,39 @@
+R7: LEIA PRIMEIRO LEIA_ME_R7_MNIST30.txt.
+Este documento abaixo descreve os controles gerais herdados da versao anterior.
+
+OV7670 + VGA + CNN MNIST + HISTORICO DE 32 REGISTROS
+=====================================================
+
+Projeto Quartus:
+  DE2_115_D8M_RTL/DE2_115_D8M_RTL.qpf
+
+Esta versao preserva a captura OV7670 e o classificador ja testados e adiciona
+um historico circular das ultimas 32 entradas 30x30 aceitas pela CNN.
+
+Passos iniciais
+---------------
+1. Extraia o pacote em uma pasta nova.
+2. Abra o arquivo QPF acima no Quartus Prime 18.1.
+3. Execute Processing > Start Compilation.
+4. Confirme no Compilation Report que CNN/history_mem foi inferida como RAM.
+5. Grave output_files/DE2_115_D8M_RTL.sof na DE2-115.
+6. Pressione KEY[0] e aguarde LEDR[0], LEDR[1] e LEDR[2].
+
+Controles principais
+--------------------
+KEY[0]: reset geral.
+KEY[1]: iniciar uma classificacao.
+KEY[2]: registro anterior, quando SW[2]=1.
+KEY[3]: proximo registro, quando SW[2]=1.
+SW[1]: ampliar a ROI 90x90.
+SW[2]: abrir o historico 30x30.
+SW[3]: selecionar autoteste em vez da camera.
+SW[7:4]: informar o numero real antes de KEY[1].
+
+Displays no modo historico
+--------------------------
+HEX7: resultado previsto pela CNN.
+HEX6/HEX5: indice decimal do registro, 00 a 31.
+HEX4: numero real armazenado.
+
+Leia TESTE_2_DEBUG_VGA_30X30.txt para o procedimento completo.

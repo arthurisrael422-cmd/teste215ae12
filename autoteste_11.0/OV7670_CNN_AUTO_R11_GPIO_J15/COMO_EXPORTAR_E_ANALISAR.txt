@@ -1,0 +1,62 @@
+VALIDACAO DOS 32 REGISTROS - REVISAO R4 ISSP
+============================================================
+
+Esta revisao NAO utiliza o In-System Memory Content Editor. A M9K ja usa as
+duas portas fisicas. A exportacao utiliza In-System Sources and Probes (ISSP),
+que seleciona enderecos pela porta de leitura existente.
+
+1. Compile normalmente DE2_115_D8M_RTL.qpf no Quartus 18.1.
+2. Programe a FPGA com o novo arquivo .sof.
+3. Para cada teste:
+   a) coloque em SW[7:4] o numero verdadeiro em binario;
+   b) enquadre o digito;
+   c) pressione KEY[1] uma vez;
+   d) aguarde LEDG[0] acender novamente.
+4. Colete preferencialmente os 32 registros antes de exportar.
+5. Nao desligue nem reprograme a placa: a RAM e volatil.
+
+EXPORTACAO PELO USB-BLASTER
+------------------------------------------------------------
+1. Mantenha a placa ligada e o USB-Blaster conectado.
+2. Abra o "Nios II Command Shell" ou o prompt de comando do Quartus.
+3. Entre na pasta que contem exportar_hist32.tcl.
+4. Execute:
+
+       quartus_stp -t exportar_hist32.tcl
+
+5. Aguarde a leitura terminar. O arquivo historico.mif sera criado.
+
+Durante a leitura, a imagem do modo de historico VGA pode oscilar: o JTAG
+assume temporariamente a porta de leitura. A captura e os dados nao sao
+alterados. Ao terminar, a porta VGA e liberada automaticamente.
+
+ANALISE NO COMPUTADOR
+------------------------------------------------------------
+Execute na mesma pasta:
+
+       python analisar_historico.py historico.mif
+
+No Windows, se necessario:
+
+       py analisar_historico.py historico.mif
+
+O diretorio saida_analise contera:
+- relatorio.html: resultado visual completo;
+- registros.csv: classe real, prevista e medidas geometricas;
+- matriz_confusao.csv: matriz de confusao 10 x 10;
+- resumo.txt: acuracia total;
+- registro_XX_real_Y_prev_Z.png: exatamente os 900 pixels da CNN.
+
+MAPA DA MEMORIA
+------------------------------------------------------------
+0..28799       32 imagens de 900 bytes (30 x 30)
+28800..28831   rotulo real; bit 7 = registro valido
+28832..28863   classe prevista
+28864..28867   assinatura ASCII H32R
+28868          versao do formato (= 3)
+28869          numero de registros preenchidos, limitado a 32
+28870          proximo indice circular de escrita
+28871          ultimo indice escrito
+
+SW[7] e o bit mais significativo e SW[4] e o menos significativo.
+Exemplos: 0=0000, 1=0001, 2=0010, 5=0101, 9=1001.

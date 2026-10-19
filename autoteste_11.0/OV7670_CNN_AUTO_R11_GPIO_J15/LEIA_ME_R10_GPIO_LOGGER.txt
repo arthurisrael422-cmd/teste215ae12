@@ -1,0 +1,49 @@
+OV7670 + CNN - R10 INTERFACE GPIO PARA REGISTRO AUTOMATICO
+==========================================================
+
+Base
+----
+Esta revisao deriva da R9 CENTER_GAIN. Captura, framebuffer, VGA,
+pre-processamento, CNN e historico de 100 registros permanecem iguais.
+
+Saidas no conector grande J15 de 40 pinos
+-----------------------------------------
+O nome logico continua EX_IO no Verilog, mas os sinais foram remapeados para
+GPIOs livres do conector J15, sem conflito com a OV7670.
+
+EX_IO[0] / GPIO[13] / PIN_AF15 / pino fisico 14 : previsao bit 0 (LSB)
+EX_IO[1] / GPIO[14] / PIN_AF24 / pino fisico 15 : previsao bit 1
+EX_IO[2] / GPIO[15] / PIN_AE21 / pino fisico 16 : previsao bit 2
+EX_IO[3] / GPIO[16] / PIN_AF25 / pino fisico 17 : previsao bit 3 (MSB)
+EX_IO[4] / GPIO[17] / PIN_AC22 / pino fisico 18 : result_toggle
+EX_IO[5] / GPIO[19] / PIN_AF21 / pino fisico 20 : processing_busy
+EX_IO[6] / GPIO[21] / PIN_AD22 / pino fisico 22 : frame_seen_vga
+
+Todos os sinais usam 3.3-V LVTTL. FPGA e ESP32 devem compartilhar GND.
+Use um dos GND fisicos do J15, por exemplo o pino 28 ou o pino 40.
+Nunca conecte os pinos de 5 V ou 3,3 V do J15 ao ESP32.
+
+Protocolo
+---------
+1. Pressione KEY[1] uma vez para iniciar a classificacao.
+2. Quando a CNN termina, EX_IO[4] troca de estado.
+3. O microcontrolador detecta qualquer mudanca em EX_IO[4].
+4. Depois da mudanca, le EX_IO[3:0].
+5. O valor permanece estavel ate a proxima classificacao.
+
+Nao use somente nivel alto em EX_IO[4]. Os eventos sao as duas transicoes:
+0->1 e 1->0.
+
+EX_IO[5] fica em 1 durante o processamento. EX_IO[6] indica que a FPGA ja
+possui um quadro valido da camera.
+
+Formato recomendado na serial
+------------------------------
+indice,previsao
+0,0
+1,5
+2,0
+
+Ao terminar cada bloco de 100 imagens, confira a quantidade antes de iniciar
+a classe seguinte. Reiniciar KEY[0] tambem reinicia result_toggle para zero,
+portanto reinicie o contador do microcontrolador junto com a FPGA.

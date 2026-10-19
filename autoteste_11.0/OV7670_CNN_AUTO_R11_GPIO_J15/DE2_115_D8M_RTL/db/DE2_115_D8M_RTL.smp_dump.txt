@@ -1,0 +1,123 @@
+
+State Machine - |DE2_115_D8M_RTL|cam2cnn:classifier|state
+Name state.SEND_PIX_TO_CNN state.WAIT_FOR_EOF state.WAIT_FOR_CLASSIFICATION 
+state.SEND_PIX_TO_CNN 0 0 0 
+state.WAIT_FOR_CLASSIFICATION 1 0 1 
+state.WAIT_FOR_EOF 1 1 0 
+
+State Machine - |DE2_115_D8M_RTL|cam2cnn:classifier|top:u0|controller:controller_u|cnn_receiver:cnn_receiver_u|rcv_state
+Name rcv_state.CLASSIFY rcv_state.FC7_PROCESS rcv_state.FC6_PROCESS rcv_state.CONV4_LAST_PIX rcv_state.CONV4_PROCESS rcv_state.CONV2_LAST_PIX rcv_state.CONV2_PROCESS 
+rcv_state.CONV2_PROCESS 0 0 0 0 0 0 0 
+rcv_state.CONV2_LAST_PIX 0 0 0 0 0 1 1 
+rcv_state.CONV4_PROCESS 0 0 0 0 1 0 1 
+rcv_state.CONV4_LAST_PIX 0 0 0 1 0 0 1 
+rcv_state.FC6_PROCESS 0 0 1 0 0 0 1 
+rcv_state.FC7_PROCESS 0 1 0 0 0 0 1 
+rcv_state.CLASSIFY 1 0 0 0 0 0 1 
+
+State Machine - |DE2_115_D8M_RTL|cam2cnn:classifier|top:u0|controller:controller_u|cnn_sender:cnn_sender_u|state
+Name state.FF_FC7 state.STALL_FF_FC7 state.FF_FC6 state.STALL_FF_FC6 state.CONV4_SEND_LAST_WINDOW state.CONV4_SEND_TO_CNN state.CONV4_FILL_LINE_BUF state.CONV2_SEND_LAST_WINDOW state.CONV2_SEND_TO_CNN state.CONV2_FILL_LINE_BUF 
+state.CONV2_FILL_LINE_BUF 0 0 0 0 0 0 0 0 0 0 
+state.CONV2_SEND_TO_CNN 0 0 0 0 0 0 0 0 1 1 
+state.CONV2_SEND_LAST_WINDOW 0 0 0 0 0 0 0 1 0 1 
+state.CONV4_FILL_LINE_BUF 0 0 0 0 0 0 1 0 0 1 
+state.CONV4_SEND_TO_CNN 0 0 0 0 0 1 0 0 0 1 
+state.CONV4_SEND_LAST_WINDOW 0 0 0 0 1 0 0 0 0 1 
+state.STALL_FF_FC6 0 0 0 1 0 0 0 0 0 1 
+state.FF_FC6 0 0 1 0 0 0 0 0 0 1 
+state.STALL_FF_FC7 0 1 0 0 0 0 0 0 0 1 
+state.FF_FC7 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE2_115_D8M_RTL|cam2cnn:classifier|top:u0|controller:controller_u|cnn_sender:cnn_sender_u|layer
+Name layer.FC7_layer layer.FC6_layer layer.CONV4_layer layer.CONV2_layer 
+layer.CONV2_layer 0 0 0 0 
+layer.CONV4_layer 0 0 1 1 
+layer.FC6_layer 0 1 0 1 
+layer.FC7_layer 1 0 0 1 
+
+State Machine - |DE2_115_D8M_RTL|cnn_center_gain_30x30:cnn_preprocessor|state
+Name state.OUT_PRIME state.OUT_SETUP state.SEARCH_Y state.PREP_Y state.SEARCH_X state.PREP_X state.CAPTURE state.IDLE state.OUT_SEND 
+state.IDLE 0 0 0 0 0 0 0 0 0 
+state.CAPTURE 0 0 0 0 0 0 1 1 0 
+state.PREP_X 0 0 0 0 0 1 0 1 0 
+state.SEARCH_X 0 0 0 0 1 0 0 1 0 
+state.PREP_Y 0 0 0 1 0 0 0 1 0 
+state.SEARCH_Y 0 0 1 0 0 0 0 1 0 
+state.OUT_SETUP 0 1 0 0 0 0 0 1 0 
+state.OUT_PRIME 1 0 0 0 0 0 0 1 0 
+state.OUT_SEND 0 0 0 0 0 0 0 1 1 
+
+State Machine - |DE2_115_D8M_RTL|roi_cnn_reader:roi_reader|state
+Name state.WAIT_RESULT state.SEND_PIXEL state.AVERAGE state.CELL_READ state.CELL_PRIME state.OUT_SETUP state.PREPARE state.SCAN state.SCAN_PRIME state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 
+state.SCAN_PRIME 0 0 0 0 0 0 0 0 1 1 
+state.SCAN 0 0 0 0 0 0 0 1 0 1 
+state.PREPARE 0 0 0 0 0 0 1 0 0 1 
+state.OUT_SETUP 0 0 0 0 0 1 0 0 0 1 
+state.CELL_PRIME 0 0 0 0 1 0 0 0 0 1 
+state.CELL_READ 0 0 0 1 0 0 0 0 0 1 
+state.AVERAGE 0 0 1 0 0 0 0 0 0 1 
+state.SEND_PIXEL 0 1 0 0 0 0 0 0 0 1 
+state.WAIT_RESULT 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE2_115_D8M_RTL|camera_interface:camera_configuration|sccb_state_q
+Name sccb_state_q.sccb_data sccb_state_q.sccb_address sccb_state_q.sccb_idle sccb_state_q.wait_init sccb_state_q.sccb_stop 
+sccb_state_q.wait_init 0 0 0 0 0 
+sccb_state_q.sccb_idle 0 0 1 1 0 
+sccb_state_q.sccb_address 0 1 0 1 0 
+sccb_state_q.sccb_data 1 0 0 1 0 
+sccb_state_q.sccb_stop 0 0 0 1 1 
+
+State Machine - |DE2_115_D8M_RTL|camera_interface:camera_configuration|debounce_explicit:m6|state_reg
+Name state_reg.delay1 state_reg.one state_reg.delay0 state_reg.idle 
+state_reg.idle 0 0 0 0 
+state_reg.delay0 0 0 1 1 
+state_reg.one 0 1 0 1 
+state_reg.delay1 1 0 0 1 
+
+State Machine - |DE2_115_D8M_RTL|camera_interface:camera_configuration|debounce_explicit:m5|state_reg
+Name state_reg.delay1 state_reg.one state_reg.delay0 state_reg.idle 
+state_reg.idle 0 0 0 0 
+state_reg.delay0 0 0 1 1 
+state_reg.one 0 1 0 1 
+state_reg.delay1 1 0 0 1 
+
+State Machine - |DE2_115_D8M_RTL|camera_interface:camera_configuration|debounce_explicit:m4|state_reg
+Name state_reg.delay1 state_reg.one state_reg.delay0 state_reg.idle 
+state_reg.idle 0 0 0 0 
+state_reg.delay0 0 0 1 1 
+state_reg.one 0 1 0 1 
+state_reg.delay1 1 0 0 1 
+
+State Machine - |DE2_115_D8M_RTL|camera_interface:camera_configuration|debounce_explicit:m3|state_reg
+Name state_reg.delay1 state_reg.one state_reg.delay0 state_reg.idle 
+state_reg.idle 0 0 0 0 
+state_reg.delay0 0 0 1 1 
+state_reg.one 0 1 0 1 
+state_reg.delay1 1 0 0 1 
+
+State Machine - |DE2_115_D8M_RTL|camera_interface:camera_configuration|i2c_top:m0|state_q
+Name state_q.stop_1 state_q.ack_master state_q.read state_q.renew_data state_q.ack_servant state_q.packet state_q.starting state_q.idle state_q.stop_2 
+state_q.idle 0 0 0 0 0 0 0 0 0 
+state_q.starting 0 0 0 0 0 0 1 1 0 
+state_q.packet 0 0 0 0 0 1 0 1 0 
+state_q.ack_servant 0 0 0 0 1 0 0 1 0 
+state_q.renew_data 0 0 0 1 0 0 0 1 0 
+state_q.read 0 0 1 0 0 0 0 1 0 
+state_q.ack_master 0 1 0 0 0 0 0 1 0 
+state_q.stop_1 1 0 0 0 0 0 0 1 0 
+state_q.stop_2 0 0 0 0 0 0 0 1 1 
+
+State Machine - |DE2_115_D8M_RTL|debounce_explicit:history_next_button|state_reg
+Name state_reg.delay1 state_reg.one state_reg.delay0 state_reg.idle 
+state_reg.idle 0 0 0 0 
+state_reg.delay0 0 0 1 1 
+state_reg.one 0 1 0 1 
+state_reg.delay1 1 0 0 1 
+
+State Machine - |DE2_115_D8M_RTL|debounce_explicit:history_previous_button|state_reg
+Name state_reg.delay1 state_reg.one state_reg.delay0 state_reg.idle 
+state_reg.idle 0 0 0 0 
+state_reg.delay0 0 0 1 1 
+state_reg.one 0 1 0 1 
+state_reg.delay1 1 0 0 1 

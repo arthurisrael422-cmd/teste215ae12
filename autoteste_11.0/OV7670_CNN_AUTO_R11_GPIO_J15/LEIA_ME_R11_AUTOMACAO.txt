@@ -1,0 +1,69 @@
+R11 - TESTE AUTOMATICO FPGA + ESP32 + MONITOR
+============================================================
+
+O que mudou na FPGA
+-------------------
+- EX_IO[5], J15 pino fisico 20, deixou de ser a saida processing_busy.
+- EX_IO[5] agora e uma entrada de solicitacao de classificacao.
+- O sinal passa por dois flip-flops e detector de borda no clock VGA.
+- KEY[1] continua iniciando classificacoes manualmente.
+- Camera, framebuffer, ROI, preprocessamento e CNN nao foram alterados.
+
+Ligacao nova
+------------
+ESP32 GPIO27 -> FPGA J15 pino 20 (EX_IO[5], PIN_AF21)
+ESP32 GND    -> FPGA GND (a ligacao de terra ja existente permanece)
+
+Ligacoes que permanecem
+-----------------------
+J15 pino 14 -> ESP32 GPIO18: previsao bit 0
+J15 pino 15 -> ESP32 GPIO19: previsao bit 1
+J15 pino 16 -> ESP32 GPIO21: previsao bit 2
+J15 pino 17 -> ESP32 GPIO22: previsao bit 3
+J15 pino 18 -> ESP32 GPIO23: result_toggle
+
+Procedimento
+------------
+1. Compile e grave o SOF desta pasta na DE2-115.
+2. Abra AUTOMACAO/esp32_fpga_automatico/esp32_fpga_automatico.ino no
+   Arduino IDE e grave no ESP32.
+3. Conecte GPIO27 ao J15 pino 20.
+4. Deixe a camera fixa e centralize a area verde sobre o centro do monitor.
+5. Organize as imagens em pastas: imagens/0, imagens/1, ..., imagens/9.
+6. Instale as dependencias no ambiente Python:
+   python -m pip install pyserial pillow
+7. Feche o Monitor Serial do Arduino IDE.
+8. Execute, trocando COM7 e o caminho:
+   python apresentar_e_coletar.py C:\caminho\imagens --porta COM7
+
+Padroes
+-------
+- 100 imagens por classe, total de 1000.
+- Digito exibido em 560 x 560 pixels no centro de uma tela preta.
+- Espera de 0,8 segundo entre exibir a imagem e solicitar a CNN.
+
+Teste curto recomendado
+-----------------------
+Antes das 1000 imagens, rode duas por classe:
+   python apresentar_e_coletar.py C:\caminho\imagens --porta COM7 --por-classe 2
+
+Saida
+-----
+resultados_automaticos.csv, com a imagem real e sua previsao na mesma linha.
+
+Analise depois da coleta
+------------------------
+Instale, se necessario:
+   python -m pip install pandas matplotlib scikit-learn
+
+Execute dentro da pasta AUTOMACAO:
+   python analisar_resultados_automaticos.py resultados_automaticos.csv
+
+Serao criados relatorio_automatico.txt e matriz_confusao_automatica.png.
+
+IMPORTANTE
+----------
+- Carregue o SOF antes de abrir o programa Python.
+- O Python abre a serial e normalmente reinicia o ESP32 automaticamente.
+- Nao deixe o Monitor Serial aberto durante a coleta.
+- Se ocorrer TIMEOUT, o programa para sem deslocar os rotulos seguintes.

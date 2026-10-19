@@ -1,0 +1,70 @@
+R6 - REDIMENSIONAMENTO POR MEDIA DE OCUPACAO
+============================================
+
+Projeto Quartus:
+  DE2_115_D8M_RTL/DE2_115_D8M_RTL.qpf
+
+Motivo da alteracao
+-------------------
+A analise visual das 32 entradas da R5 mostrou que a geometria 30x30 estava
+correta, mas o max-pooling deixava tracos grossos, cantos quadrados e pequenos
+defeitos muito fortes. A CNN passou a prever 5 em 15 das 32 amostras.
+
+Alteracao da R6
+---------------
+Somente DE2_115_D8M_RTL/CNN/roi_cnn_reader.v foi alterado.
+
+Para cada pixel da area 20x20 normalizada, a R5 escolhia o maior valor de todos
+os pixels da celula de origem. A R6 soma as intensidades e divide pelo numero de
+pixels da celula:
+
+  pixel_saida = soma_das_intensidades / quantidade_de_pixels
+
+Consequencias esperadas:
+  - um ponto isolado deixa de preencher toda a celula;
+  - as bordas passam a possuir tons intermediarios;
+  - os tracos ficam menos quadrados e menos grossos;
+  - curvas de 0, 6, 8 e 9 tendem a conservar melhor os vazios internos.
+
+A divisao e feita por subtracoes sequenciais. Isso usa pouca logica e evita um
+divisor combinacional grande. A classificacao pode levar alguns milissegundos a
+mais, mas a camera e o VGA continuam trabalhando normalmente.
+
+Elementos preservados
+---------------------
+  - camera_interface.v e configuracao SCCB;
+  - captura YUYV da OV7670;
+  - bancos de framebuffer e ROI;
+  - VGA e quadrado verde;
+  - pesos e arquitetura da CNN;
+  - autoteste mnist_test_digit.hex;
+  - historico de 32 registros e exportacao JTAG.
+
+Teste recomendado
+-----------------
+1. Compile o projeto no Quartus Prime 18.1 e programe o arquivo SOF.
+2. Pressione KEY[0].
+3. Coloque SW[3]=1 e pressione KEY[1]: o autoteste deve continuar resultando 7.
+4. Volte SW[3]=0.
+5. Capture pelo menos tres amostras de cada algarismo, informando o valor real
+   em SW[7:4] antes de KEY[1].
+6. Use SW[2]=1 para conferir se a matriz possui tons de cinza nas bordas e se
+   o traco nao ficou excessivamente fino.
+7. Exporte os 32 registros e compare a acuracia com os 34,38% da R5.
+
+Criterio de decisao
+-------------------
+Se a entrada 30x30 melhorar visualmente e a acuracia subir, a media deve ser
+mantida. Se os tracos ficarem finos demais, a proxima versao deve combinar a
+media com um ganho de intensidade; nao se deve voltar imediatamente ao maximo.
+
+Validacao realizada antes da entrega
+------------------------------------
+  - maquina de estados estruturalmente balanceada;
+  - enderecos da ROI mantidos em 0..8099;
+  - exatamente 900 pulsos validos enviados para a CNN;
+  - divisor sempre entre 1 e 25;
+  - quociente limitado a 0..255;
+  - nenhuma modificacao no caminho camera-framebuffer-VGA.
+
+A compilacao final e a verificacao de timing devem ser feitas no Quartus 18.1.

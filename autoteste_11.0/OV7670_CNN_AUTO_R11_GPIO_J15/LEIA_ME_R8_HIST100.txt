@@ -1,0 +1,64 @@
+OV7670 + CNN - R8 HISTORICO DE 100 CLASSIFICACOES
+=================================================
+
+Objetivo
+--------
+Esta revisao preserva o caminho funcional camera -> ROI -> CNN -> VGA e
+aumenta o historico circular de 32 para 100 entradas 30x30.
+
+O autoteste de imagens conhecidas associado a SW[3] foi retirado da sintese
+para liberar M9K. Os arquivos antigos podem permanecer na pasta CNN como
+referencia, mas nao aparecem no QSF e nao consomem recursos da FPGA.
+
+Controles
+---------
+KEY[0]    reset
+KEY[1]    captura e classifica a imagem atual
+SW[7:4]   classe real informada pelo usuario (0 a 9)
+SW[1]     amplia a ROI apenas na visualizacao VGA
+SW[2]     mostra a entrada 30x30 armazenada
+KEY[2]    registro anterior, quando SW[2]=1
+KEY[3]    proximo registro, quando SW[2]=1
+SW[3]     sem funcao nesta revisao
+
+Displays no modo historico (SW[2]=1)
+------------------------------------
+HEX7      classe prevista
+HEX6:HEX5 indice do registro, de 00 a 99
+HEX4      classe real
+
+Memoria
+-------
+100 imagens x 900 pixels x 8 bits = 720.000 bits uteis.
+A altsyncram usa exatamente 90.208 x 8 bits. Esta revisao corrigida nao
+reserva as 40.864 palavras inutilizadas da primeira tentativa HIST100.
+
+Mapa exportado
+--------------
+0..89999       pixels: 100 blocos de 900 bytes
+90000..90099   classe real; bit 7 indica registro valido
+90100..90199   classe prevista
+90200..90207   cabecalho H100, versao, contador, proximo e ultimo
+
+O historico e circular. Depois do registro 99, uma nova captura sobrescreve
+o registro 00. O contador permanece limitado a 100.
+
+Exportacao
+----------
+No Prompt de Comando do Quartus 18.1, dentro desta pasta, execute:
+
+quartus_stp -t exportar_hist100.tcl
+
+Depois execute:
+
+python analisar_historico.py historico.mif
+
+O analisador gera as 100 imagens, registros.csv, matriz_confusao.csv,
+resumo.txt e relatorio.html.
+
+Observacao de compilacao
+-----------------------
+O projeto anterior utilizava 2.555.264 / 3.981.312 bits (64%). A primeira
+tentativa HIST100 reservou 131.072 bytes e excedeu os 432 blocos M9K. Esta
+revisao usa 90.208 bytes e guarda classe real/prevista em registradores,
+evitando M9K adicionais. O valor definitivo deve ser confirmado no Fitter.
